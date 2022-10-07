@@ -1,5 +1,5 @@
 body{
-    background-image: url(/imagenes/fondo.png);
+    background-image: url("imagenes/fondo.png");
     background-size: 100%;
 
     font-family: InterLight, Helvetica, Arial, sans-serif;
