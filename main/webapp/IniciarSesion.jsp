@@ -18,9 +18,9 @@
     <div class="contenedor-total">
 
         <div class="contenedor">
-          
-
             <div class="contenedor2" >
+				<form action="IniciarSesion" method="post">
+
                 <div class="row">
                     <hr class="dashed col">
                     <h1 class="col" style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">Bienvenido/a!</h1>
@@ -30,19 +30,19 @@
                 <h4 style="text-align:center ;">Ingrese sus datos para acceder a su cuenta.</h4>
                 <br><br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" name="nickname" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Nickname</label>
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Contraseña</label>
                 </div>
                 <br> <br> <br>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" >Acceder</button>
+                    <button type="submit" class="btn btn-primary btn-lg boton2" >Acceder</button>
                 </div>
-                
+                				</form>
             </div>
         </div>
 
