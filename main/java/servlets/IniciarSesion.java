@@ -43,7 +43,7 @@ public class IniciarSesion extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String nickname = request.getParameter("nickname");
+	/*	String nickname = request.getParameter("nickname");
 		String pass = request.getParameter("password");
 		Fabrica fabrica = Fabrica.getInstancia();
 		DtUsuario dtu;
@@ -63,7 +63,7 @@ public class IniciarSesion extends HttpServlet {
 			throw new ServletException(e.getMessage());
 		}
 		request.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario" + nickname);
-		doGet(request, response);
+		doGet(request, response); */
 	}
 
 }

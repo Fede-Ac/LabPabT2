@@ -8,7 +8,7 @@
 HttpSession sesion = request.getSession();
 String tipoUsuario = (String)sesion.getAttribute("tipoUsuario");
 if(tipoUsuario == null){
-	tipoUsuario = "Visitante";
+	tipoUsuario = "Profesor"; //esto normalmente dice "Visitante" pero esta en profesor para probar
 }
 %>
 
