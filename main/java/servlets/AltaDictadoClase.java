@@ -84,9 +84,13 @@ public class AltaDictadoClase extends HttpServlet {
 		try {
 			icon.addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
 		}catch(ClaseRepetidaEx e) {
-			throw new ServletException(e.getMessage());
+			sesion.setAttribute("mensajeError", e.getMessage());
+			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
+			return;
 		}catch (NoExistenUsuariosEx e) {
-			throw new ServletException(e.getMessage());
+			sesion.setAttribute("mensajeError", e.getMessage());
+			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
+			return;
 		}
 		request.setAttribute("mensaje", "Clase creada exitosamente.");
 		doGet(request, response); 

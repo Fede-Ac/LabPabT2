@@ -49,11 +49,11 @@ public class IniciarSesion extends HttpServlet {
 		Fabrica fabrica = Fabrica.getInstancia();
 		DtUsuario dtu;
 		IControladorUsuario icon = fabrica.getIControladorUsuario();
-		
+		HttpSession sesion = request.getSession();
 		
 		try {
 			dtu = icon.existeUsuario(nickname, pass);
-			HttpSession sesion = request.getSession();
+			
 			if (dtu instanceof DtProfesor) {
 				sesion.setAttribute("tipoUsuario","Profesor");
 			}else if (dtu instanceof DtSocio){
@@ -65,7 +65,11 @@ public class IniciarSesion extends HttpServlet {
 			sesion.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario " + nickname);
 			
 		}catch(NoExistenUsuariosEx e) {
-			throw new ServletException(e.getMessage());
+			
+			sesion.setAttribute("mensajeError", e.getMessage());
+			response.sendRedirect(request.getContextPath() + "/IniciarSesion.jsp");
+			return;
+			//throw new ServletException(e.getMessage());
 		}
 		//request.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario " + nickname);
 		//doGet(request, response); 

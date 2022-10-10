@@ -16,13 +16,15 @@
 
 </head>
 
-<body>
+<body onload="mostrarNotificacionError();">
 
 <%
 	Fabrica fabrica = Fabrica.getInstancia();
 	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
 	ArrayList<String> actividades = icon.getActividadesDeportivas();
 %>
+
+
 
     <div class="contenedor-total">
 
@@ -83,6 +85,10 @@
         </div>
 
     </div>
+    
+    
+    
+    
 
   <form oninput="x.value=a.value">
 <input type="email" id="a">
