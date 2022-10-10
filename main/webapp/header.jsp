@@ -5,8 +5,9 @@
 <link rel="stylesheet" href="bootstrap/docs.css">
 
 <% 
-HttpSession sesion = request.getSession();
-String tipoUsuario = (String)sesion.getAttribute("tipoUsuario");
+HttpSession sesion2 = request.getSession();
+String tipoUsuario = (String)sesion2.getAttribute("tipoUsuario");
+
 if(tipoUsuario == null){
 	tipoUsuario = "Profesor"; //esto normalmente dice "Visitante" pero esta en profesor para probar
 }
@@ -58,7 +59,7 @@ if(tipoUsuario == null){
                         <li><a class="dropdown-item" href="#">Crear cuenta</a></li>
                         <%} %>
                         <%if(!tipoUsuario.equals("Visitante")){ %> 
-                        <li><a class="dropdown-item" href="#">Cerrar sesion</a></li>
+                        <li><a class="dropdown-item" href="index.jsp" onclick="cerrarSesion()">Cerrar sesion</a></li>
                         <%} %>
                     </ul>              
                 </div>

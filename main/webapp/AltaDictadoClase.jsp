@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="interfaces.IControladorActividadDeportiva"%>
+<%@page import="interfaces.Fabrica"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +18,12 @@
 
 <body>
 
+<%
+	Fabrica fabrica = Fabrica.getInstancia();
+	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
+	ArrayList<String> actividades = icon.getActividadesDeportivas();
+%>
+
     <div class="contenedor-total">
 
         <div class="contenedor">
@@ -29,39 +38,57 @@
                 <br>
                 <h4 style="text-align:center ;">Ingrese los datos para crear una nueva clase.</h4>
                 <br><br>
-                <div class="form-floating mb-3">
-                    <select class="form-select" aria-label="Default select example">
-                        <option value="1">Actividad A</option>
-                        <option value="2">Actividad B</option>
-                        <option value="3">Actividad C</option>
-                    </select>
-                    <label for="floatingInput">Actividad Deportiva</label>
-                </div>
-                <br>
-                <div class="form-floating">
-                    <input type="datetime-local" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Fecha de Inicio</label>
-                </div>
-                <br> <br>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">URL de clase</label>
-                </div>
-                <br> 
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">URL de imagen</label>
-                </div>
-                <br> <br> <br>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" >Acceder</button>
-                </div>
+                <form action="AltaDictadoClase" method="post">    
+	                <div class="form-floating mb-3">
+	                    <select class="form-select" aria-label="Default select example" name="actividadDeportiva" required>
+	                    	<%
+	                    	for(String a : actividades){
+	                    		
+	                    	%>
+	                       	<option value="<%=a%>"><%=a%> </option>
+	
+	                        <%
+	                    	}
+	                        %>
+	                    </select>
+	                    <label for="floatingInput">Actividad Deportiva</label>
+	                </div>
+	                <br>
+	                <div class="form-floating mb-3">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="nombre" required>
+	                    <label for="floatingInput">Nombre de clase</label>
+	                </div>
+	                <br>
+	                <div class="form-floating">
+	                    <input type="datetime-local" class="form-control" id="floatingPassword" placeholder="Password" name="fechaInicio" required>
+	                    <label for="floatingPassword">Fecha de Inicio</label>
+	                </div>
+	                <br> <br>
+	                <div class="form-floating mb-3">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="urlClase" required>
+	                    <label for="floatingInput">URL de clase</label>
+	                </div>
+	                <br> 
+	                <div class="form-floating mb-3">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="urlImagen">
+	                    <label for="floatingInput">URL de imagen</label>
+	                </div>
+	                <br> <br> <br>
+	                <div style="display: flex; justify-content: center; align-items: center;">
+	                    <button type="submit" class="btn btn-primary btn-lg boton2" >Crear</button>
+	                    
+	                </div>
+                </form>
             </div>
         </div>
 
     </div>
 
-  
+  <form oninput="x.value=a.value">
+<input type="email" id="a">
++<input type="number" id="b" value="25">
+=<output name="x" for="a"></output>
+</form>
 
 <%@include file="/footer.jsp" %>
 </body>
