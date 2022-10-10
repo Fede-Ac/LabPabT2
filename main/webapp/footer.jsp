@@ -4,16 +4,10 @@
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
 </script>
+<!-- 
 
-<script>
-function cerrarSesion() {
-	<% 
-	HttpSession sesion = request.getSession();
-	sesion.setAttribute("tipoUsuario","Visitante");
-	%>
-	alert("Sesion cerrada correctamente");
-}
-</script>
+
+ -->
 
 
 <script>

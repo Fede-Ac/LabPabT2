@@ -29,12 +29,12 @@
                 <h4 style="text-align:center ;">Ingrese sus datos para acceder a su cuenta.</h4>
                 <br><br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" name="nickname" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" name="nickname" id="floatingInput" placeholder="name@example.com" required>
                     <label for="floatingInput">Nickname</label>
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
                     <label for="floatingPassword">Contraseña</label>
                 </div>
                 <br> <br> <br>

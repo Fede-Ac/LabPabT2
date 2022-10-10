@@ -9,7 +9,7 @@ HttpSession sesion2 = request.getSession();
 String tipoUsuario = (String)sesion2.getAttribute("tipoUsuario");
 
 if(tipoUsuario == null){
-	tipoUsuario = "Profesor"; //esto normalmente dice "Visitante" pero esta en profesor para probar
+	tipoUsuario = "Visitante";
 }
 %>
 
@@ -59,7 +59,11 @@ if(tipoUsuario == null){
                         <li><a class="dropdown-item" href="#">Crear cuenta</a></li>
                         <%} %>
                         <%if(!tipoUsuario.equals("Visitante")){ %> 
-                        <li><a class="dropdown-item" href="index.jsp" onclick="cerrarSesion()">Cerrar sesion</a></li>
+                        <li>
+                        <form action="CerrarSesion" method="post">
+					    	<input class="dropdown-item" type="submit" name="cerrarSesion" value="Cerrar Sesion" />
+						</form>
+                        </li>
                         <%} %>
                     </ul>              
                 </div>
