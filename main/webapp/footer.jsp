@@ -42,3 +42,26 @@ function mostrarNotificacion() {
 }
 
 </script>
+
+	<% 
+	HttpSession sesion4 = request.getSession();
+	String mensaje2 = (String)sesion4.getAttribute("mensajeError");
+	%>
+    
+<div class="alert alert-danger alert-dismissible fade show sticky-bottom hide" id="alertId" role="alert">
+	<img src="vector/exclamacion.svg" alt="" style="height:20px; margin-right:20px; margin-left:6px" >
+	<%=mensaje2 %>
+  	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<script>
+function mostrarNotificacionError() {
+	<%if(mensaje2 != null){%>
+	document.getElementById('alertId').classList.remove('hide');
+	<% 
+	sesion4.setAttribute("mensajeError", null);
+	}
+	%>
+}
+</script>
+	

@@ -252,3 +252,7 @@ hr.dashed {
     color: #FFFFFF;
 }
 
+.hide{
+	display: none;
+}
+

@@ -13,10 +13,9 @@
 
 </head>
 
-<body>
+<body onload="mostrarNotificacionError();">
 
     <div class="contenedor-total">
-
         <div class="contenedor">
             <div class="contenedor2" >
 				<form action="IniciarSesion" method="post">
