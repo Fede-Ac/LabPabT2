@@ -10,7 +10,7 @@
     <%@include file="/header.jsp" %>
 
 </head>
-<body>
+<body onload="mostrarNotificacion();">
 
     <div class="contenedor-total">
         <img src="imagenes/decoracion.png" style="width: 100%; z-index: 1; position: relative;" alt="decoracion">
@@ -56,7 +56,7 @@
                 <div style="display:flex;">
                     <div class="desc1">
                         <div class="header-1" style="display: flex;">
-                            <h1>NUESTRO</h1><h1 style="color: #FF9B55;">OBJETIVO</h1>    
+                            <h1 id="titulo">NUESTRO</h1><h1 style="color: #FF9B55;">OBJETIVO</h1>    
                         </div>
                         <p style="width: 100%; margin: 0; padding: 0; margin-top: 16px;">La propagación del coronavirus en el mundo ha afectado considerablemente la salud de las personas tanto por los efectos del virus y los contagios, como por la suspensión de actividades deportivas en general y el cierre de clubes y gimnasios deportivos. </p>
                     </div>
@@ -78,6 +78,9 @@
         </div>
 
     </div>
+    
+
+
 <%@include file="/footer.jsp" %>
 </body>
 </html>

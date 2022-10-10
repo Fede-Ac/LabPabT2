@@ -40,12 +40,12 @@
                 <br><br>
                 <form action="AltaDictadoClase" method="post">    
 	                <div class="form-floating mb-3">
-	                    <select class="form-select" aria-label="Default select example" name="actividadDeportiva">
+	                    <select class="form-select" aria-label="Default select example" name="actividadDeportiva" required>
 	                    	<%
 	                    	for(String a : actividades){
 	                    		
 	                    	%>
-	                        <option value="<%=a%>"><%=a%> </option>
+	                       	<option value="<%=a%>"><%=a%> </option>
 	
 	                        <%
 	                    	}
@@ -55,17 +55,17 @@
 	                </div>
 	                <br>
 	                <div class="form-floating mb-3">
-	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="nombre">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="nombre" required>
 	                    <label for="floatingInput">Nombre de clase</label>
 	                </div>
 	                <br>
 	                <div class="form-floating">
-	                    <input type="datetime-local" class="form-control" id="floatingPassword" placeholder="Password" name="fechaInicio">
+	                    <input type="datetime-local" class="form-control" id="floatingPassword" placeholder="Password" name="fechaInicio" required>
 	                    <label for="floatingPassword">Fecha de Inicio</label>
 	                </div>
 	                <br> <br>
 	                <div class="form-floating mb-3">
-	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="urlClase">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="urlClase" required>
 	                    <label for="floatingInput">URL de clase</label>
 	                </div>
 	                <br> 
@@ -85,7 +85,7 @@
     </div>
 
   <form oninput="x.value=a.value">
-<input type="datetime-local" id="a">
+<input type="email" id="a">
 +<input type="number" id="b" value="25">
 =<output name="x" for="a"></output>
 </form>

@@ -70,7 +70,7 @@ public class AltaDictadoClase extends HttpServlet {
 		
 		//
 		if (nomProf == null) { //esto se quita despues
-			nomProf = "hola";
+			throw new ServletException("No eres un profesor");
 		}
 		//
 		

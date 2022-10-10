@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +38,6 @@ public class IniciarSesion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -61,11 +62,18 @@ public class IniciarSesion extends HttpServlet {
 			
 			sesion.setAttribute("nombreUsuario", dtu.getNickname());
 			
+			sesion.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario " + nickname);
+			
 		}catch(NoExistenUsuariosEx e) {
 			throw new ServletException(e.getMessage());
 		}
-		request.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario" + nickname);
-		doGet(request, response); 
+		//request.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario " + nickname);
+		//doGet(request, response); 
+		//RequestDispatcher rd;
+		//rd = request.getRequestDispatcher("/index.jsp");
+		//rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
+		
 	}
 
 }
