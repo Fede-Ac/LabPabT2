@@ -23,10 +23,10 @@
 
 </head>
 
-<body>
+<body onload="mostrarNotificacion();">
 
 <%
-
+	HttpSession sesion = request.getSession();
 	Fabrica fabrica = Fabrica.getInstancia();
 	IControladorInstitucionDep icon = fabrica.getIControladorInstitucionDep();
 	IControladorActividadDeportiva iconAD = fabrica.getIControladorActividadDeportiva();
@@ -44,14 +44,31 @@
 		DtActividadDeportiva dtActDep = iconAD.ConsultaActividadDeportiva(actividadDeportiva);
 		clases = dtActDep.getClases();
 	}
-	//String nickname = request.getParameter("nombreUsuario");
-	//DtUsuario dtu = iconU.consultaUsuario(nickname);
-	//if(dtu instanceof DtSocio){
-		//dtu como dts se obtiene su lista de clases, y se le resta a la lista total de clases previamente conseguida.
-	//}
-
-	
+	String nickname = (String)sesion.getAttribute("nombreUsuario");
+	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
+	if(nickname != null){
+		DtUsuario dtu = iconU.consultaUsuario(nickname);
+		if(dtu instanceof DtSocio){
+			//dtu como dts se obtiene su lista de clases, y se le resta a la lista total de clases previamente conseguida.
+			clasesRegistradas = ((DtSocio)dtu).getClases();
+			//throw new ServletException("usuario es "+ dtu.getNickname() + ". Y sus clases registradas son:\n\n" + dtu);
+		}
+	}
+	ArrayList<DtClase> clasesNoRegistradas = new ArrayList<DtClase>();
+	boolean estaRegistrada;
+	for(DtClase c : clases){
+		estaRegistrada = false;
+		for(DtClase cr : clasesRegistradas){
+			if(c.getNombre().equals(cr.getNombre())){
+				estaRegistrada = true;
+			}
+		}
+		if(!estaRegistrada){
+			clasesNoRegistradas.add(c);
+		}
+	}
 %>
+
 
     <div class="contenedor-total">
 
@@ -109,7 +126,7 @@
                     	<%
                     	int i = 1;
                     	boolean primeraVez = true;
-                    	for(DtClase c : clases){%>
+                    	for(DtClase c : clasesNoRegistradas){%>
                     		
                     		<%if(i == 1){ %>
 	                    		<div class="carousel-item <%if(primeraVez){%>active<%}%>"data-bs-interval="100000000000000">
@@ -119,15 +136,19 @@
 				        	<div class="card custom-card" style="width: 16rem; margin-bottom: 30px;">
                             	<img style="height: 200px; object-fit:cover;"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdOaj4b3Ae3SoCKXAN-1LNG05JUL3NureTBw&usqp=CAU"class="card-img-top" alt="...">
                             	<h5 class="card-title custom-card-title"><%=c.getNombre()%></h5>
-                            	
-                            	<div class="card-body" style="padding-top:0; padding-bottom: 0;">
-	                            	<ul class="list-group list-group-flush">
-	                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=c.getUrl()%></a></li>
-	                                	<li class="list-group-item" style="text-align: center;"><%=c.getFechaInicio()%></li>
-	                                	<button type="submit" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalSocios" style="margin-top: 15px;">Registrarse</button>
-	                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg()%></li>
-	                                </ul>
-                            	</div>
+                            	<form action="RegistroDictadoClase" method="post">
+                            		<input type="hidden" name="clase" id="clase" value="<%=c.getNombre() %>">
+	                            	<div class="card-body" style="padding-top:0; padding-bottom: 0;">
+		                            	<ul class="list-group list-group-flush">
+		                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=c.getUrl()%></a></li>
+		                                	<li class="list-group-item" style="text-align: center;"><%=c.getFechaInicio()%></li>
+		                                	
+									    		<input class="btn btn-primary btn-lg boton2 small" type="submit" style="margin-top: 15px;" value="Registrarse" />
+											
+		                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg()%></li>
+		                                </ul>
+	                            	</div>
+                            	</form>
                         	</div> 
                         	
                         	<%if(i == 3){ %>
