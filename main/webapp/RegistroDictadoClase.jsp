@@ -134,7 +134,7 @@
                     		<%}%>
                     	
 				        	<div class="card custom-card" style="width: 16rem; margin-bottom: 30px;">
-                            	<img style="height: 200px; object-fit:cover;"src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdOaj4b3Ae3SoCKXAN-1LNG05JUL3NureTBw&usqp=CAU"class="card-img-top" alt="...">
+                            	<img style="height: 200px; object-fit:cover;"src="<%=c.getPicture()%>" onerror="this.onerror=null; this.src='imagenes/defClase.png'" class="card-img-top" alt="...">
                             	<h5 class="card-title custom-card-title"><%=c.getNombre()%></h5>
                             	<form action="RegistroDictadoClase" method="post">
                             		<input type="hidden" name="clase" id="clase" value="<%=c.getNombre() %>">
