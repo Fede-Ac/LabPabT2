@@ -92,8 +92,8 @@ public class AltaDictadoClase extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
 			return;
 		}
-		request.setAttribute("mensaje", "Clase creada exitosamente.");
-		doGet(request, response); 
+		sesion.setAttribute("mensaje", "Clase " + nombre + " creada exitosamente.");
+		response.sendRedirect(request.getContextPath() + "/index.jsp");
 		
 	}
 

@@ -32,7 +32,13 @@
 	}
 
 	DtActividadDeportiva actividadActiva = null;
+	String ranking = request.getParameter("ranking");
+	if(ranking != null){
+		dtActividades = icon.rankingActividadesDeportivas();
+	}
 	%>
+	
+	
 
 	<div class="contenedor-total">
 
@@ -47,17 +53,22 @@
 						Actividades&nbspDeportivas</h1>
 					<hr class="dashed col">
 				</div>
-				<div
-					style="display: flex; justify-content: right; align-items: right;">
-					<button type="button"
-						class="btn btn-primary btn-lg boton2 small ranking"
-						data-bs-toggle="tooltip" data-bs-placement="bottom"
-						data-bs-title="Ordenar por no. de clases"
-						data-bs-custom-class="custom-tooltip">
-						<img class="img-ranking" src="vector/ranking.svg"
-							style="width: 34px;">
-					</button>
+				<%if(tipoUsuario.equals("Profesor")){ %>
+				
+				<div style="display: flex; justify-content: right; align-items: right;">
+					<form method="post">
+						<input type="hidden" name="ranking" id="ranking" value="ranking">
+						<button type="submit"
+							class="btn btn-primary btn-lg boton2 small ranking"
+							data-bs-toggle="tooltip" data-bs-placement="bottom"
+							data-bs-title="Ordenar por no. de clases"
+							data-bs-custom-class="custom-tooltip">
+							<img class="img-ranking" src="vector/ranking.svg"
+								style="width: 34px;">
+						</button>
+					</form>
 				</div>
+				<%} %>
 				<br> <br>
 				<div style="display: grid;">
 					<div class="row">
