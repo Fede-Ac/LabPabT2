@@ -66,7 +66,7 @@
 	                <div style="display: flex; justify-content:right; align-items: right;">
 	                <form method="post">
 	                	<input type="hidden" name="ranking" id="ranking" value="ranking">
-	                    <button type="button" class="btn btn-primary btn-lg boton2 small ranking" data-bs-toggle="tooltip"
+	                    <button type="submit" class="btn btn-primary btn-lg boton2 small ranking" data-bs-toggle="tooltip"
 	                        data-bs-placement="bottom" data-bs-title="Ordenar por no. de socios"
 	                        data-bs-custom-class="custom-tooltip"><img class="img-ranking" src="vector/ranking.svg"
 	                            style="width: 34px;"></button>
