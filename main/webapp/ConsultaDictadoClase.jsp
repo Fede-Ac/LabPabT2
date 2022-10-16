@@ -62,12 +62,17 @@
                         Clases</h1>
                     <hr class="dashed col">
                 </div>
-                <div style="display: flex; justify-content:right; align-items: right;">
-                    <button type="button" class="btn btn-primary btn-lg boton2 small ranking" data-bs-toggle="tooltip"
-                        data-bs-placement="bottom" data-bs-title="Ordenar por no. de socios"
-                        data-bs-custom-class="custom-tooltip"><img class="img-ranking" src="vector/ranking.svg"
-                            style="width: 34px;"></button>
-                </div>
+                
+	                <div style="display: flex; justify-content:right; align-items: right;">
+	                <form method="post">
+	                	<input type="hidden" name="ranking" id="ranking" value="ranking">
+	                    <button type="button" class="btn btn-primary btn-lg boton2 small ranking" data-bs-toggle="tooltip"
+	                        data-bs-placement="bottom" data-bs-title="Ordenar por no. de socios"
+	                        data-bs-custom-class="custom-tooltip"><img class="img-ranking" src="vector/ranking.svg"
+	                            style="width: 34px;"></button>
+	                </form>
+	                </div>
+                
                 <br><br>
                 <div style="display:grid;">
                     <div class="row">
@@ -79,7 +84,11 @@
 						ArrayList<DtClase> dtC = new ArrayList<DtClase>();	
                     	int cont = 0;
 						
-						
+                    	String ranking = request.getParameter("ranking");
+                    	if(ranking != null){
+                    		dtClases =icC.rankingClases();
+                    	}
+                    	
 						for (DtClase a : dtClases) {
 							socios = new ArrayList<DtUsuario>(); 
 							sociosEnClase = new ArrayList<DtSocio>();
@@ -145,7 +154,7 @@
 									                    	<%
 									                    		for(DtSocio H : sociosEnClase){
 									                    	%>
-									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
+									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico" style="background-image: url(<%=H.getpfp()%>), url('imagenes/defPerfil.png')"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
 									                    	<%
 																}
 															%>
