@@ -1,3 +1,7 @@
+<%@page import="datatypes.DtProfesor"%>
+<%@page import="datatypes.DtUsuario"%>
+<%@page import="interfaces.IControladorUsuario"%>
+<%@page import="interfaces.Fabrica"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +19,13 @@
 
 <body>
 
+		<%
+		Fabrica fabrica = Fabrica.getInstancia();
+		IControladorUsuario icon = fabrica.getIControladorUsuario();
+		String nickname = (String)sesion2.getAttribute("NombreUsuario");
+		DtUsuario dtu = icon.consultaUsuario(nickname);
+		%>
+
     <div class="contenedor-total">
 
         <div class="contenedor">
@@ -30,36 +41,38 @@
                 <h4 style="text-align:center ;">Modifique los datos que quiera cambiar.</h4>
                 <br><br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getNombre()%>" name= "nomUsuario">
                     <label for="floatingInput">Nombre</label>
                 </div>
                 <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getApellido()%>" name="apellidoUsuario">
                     <label for="floatingInput">Apellido</label>
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha()%>" name="fecNacimiento">
                     <label for="floatingPassword">Fecha de nacimiento</label>
                 </div>
                 <br> <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getpfp()%>" name="imagen">
                     <label for="floatingInput">URL de imágen de perfil</label>
                 </div><br>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Descripción</label>
-                </div><br><br>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Biografía (opcional)</label>
-                </div><br><br>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Sitio web (opcional)</label>
-                </div> <br> <br>
+                <%if(dtu instanceof DtProfesor){%>
+	                <div class="form-floating">
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+	                    <label for="floatingTextarea2">Descripción</label>
+	                </div><br><br>
+	                <div class="form-floating">
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+	                    <label for="floatingTextarea2">Biografía (opcional)</label>
+	                </div><br><br>
+	                <div class="form-floating mb-3">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+	                    <label for="floatingInput">Sitio web (opcional)</label>
+                	</div> <br> <br> 
+                <%} %>
                 
                 <div style="display:flex ;">
                     <p style="margin:auto ; padding-right:19px ; font-size: 30px;">Eliminar registros?</p>
@@ -242,8 +255,8 @@
                 
                 <br> <br> <br>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px ;">Cancelar</button>
-                    <button type="button" class="btn btn-primary btn-lg boton2" >Confirmar</button>
+                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
                 </div>
                 
             </div>
