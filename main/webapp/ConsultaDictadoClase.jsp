@@ -77,7 +77,9 @@
 						ArrayList<DtUsuario> socios = new ArrayList<DtUsuario>(); 
 						ArrayList<DtSocio> sociosEnClase = new ArrayList<DtSocio>();
 						ArrayList<DtClase> dtC = new ArrayList<DtClase>();	
-                    	
+                    	int cont = 0;
+						
+						
 						for (DtClase a : dtClases) {
 							socios = new ArrayList<DtUsuario>(); 
 							sociosEnClase = new ArrayList<DtSocio>();
@@ -88,8 +90,8 @@
 							DtFecha registro = a.getFechaReg();
 							String picture = a.getPicture();
 						
-							
-					
+							//Esto es el código para sacar los usuarios que tiene que mostrar el modal 
+						
 							
 							//Obtengo los usuarios que son socios
 							for(String j : usuarios){
@@ -126,10 +128,11 @@
                                         <li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=url%></a></li>
                                         <li class="list-group-item" style="text-align: center;"><%=inicio%></li>
                                         
-  										<button type="button" style="margin-top: 15px;" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalSocios<%=nombre%>" data-actividad="<%=nombre%>">Ver socios</button>
+                                        
+  										<button type="button" style="margin-top: 15px;" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalSocios<%=cont%>" data-actividad="<%=nombre%>">Ver socios</button>
   										
   										<!-- inicio Modal -->
-										<div class="modal fade" id="modalSocios<%=nombre%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="modalSocios<%=cont%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 									        <div class="modal-dialog">
 									            <div class="modal-content">
 									               <div class="modal-header">
@@ -162,6 +165,7 @@
 						
 						 
 						     <%
+						     	cont++;
     							//El for se cierra acá
 								}
 							%>
