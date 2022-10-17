@@ -22,7 +22,7 @@
 		<%
 		Fabrica fabrica = Fabrica.getInstancia();
 		IControladorUsuario icon = fabrica.getIControladorUsuario();
-		String nickname = (String)sesion2.getAttribute("NombreUsuario");
+		String nickname = (String)sesion2.getAttribute("nombreUsuario");
 		DtUsuario dtu = icon.consultaUsuario(nickname);
 		%>
 
@@ -51,7 +51,7 @@
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha()%>" name="fecNacimiento">
+                    <input type="text" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha().getDia()%>/<%=dtu.getFecha().getMes()%>/<%=dtu.getFecha().getAnio()%>" name="fecNacimiento">
                     <label for="floatingPassword">Fecha de nacimiento</label>
                 </div>
                 <br> <br>
@@ -59,17 +59,20 @@
                     <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getpfp()%>" name="imagen">
                     <label for="floatingInput">URL de imágen de perfil</label>
                 </div><br>
-                <%if(dtu instanceof DtProfesor){%>
+                
+                <%if((dtu instanceof DtProfesor)){
+                	DtProfesor dtp = (DtProfesor)dtu;
+                %>              
 	                <div class="form-floating">
-	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"><%=dtp.getDescripcion()%></textarea>
 	                    <label for="floatingTextarea2">Descripción</label>
 	                </div><br><br>
 	                <div class="form-floating">
-	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"><%=dtp.getBiografia()%></textarea>
 	                    <label for="floatingTextarea2">Biografía (opcional)</label>
 	                </div><br><br>
 	                <div class="form-floating mb-3">
-	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtp.getSitioWeb()%>">
 	                    <label for="floatingInput">Sitio web (opcional)</label>
                 	</div> <br> <br> 
                 <%} %>

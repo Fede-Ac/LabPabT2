@@ -18,7 +18,12 @@
 
 <body>
 
-	
+		<%
+		Fabrica fabrica = Fabrica.getInstancia();
+		IControladorUsuario icon = fabrica.getIControladorUsuario();
+		String nickname = (String)sesion2.getAttribute("nombreUsuario");
+		DtUsuario dtu = icon.consultaUsuario(nickname);
+		%>	
 
     <div class="contenedor-total">
         <div class="contenedor">
@@ -30,12 +35,12 @@
                             </div>
                     </div>
                     <div style="margin-right:44px;">
-                        <h1>Nickname</h1>
+                        <h1><%=dtu.getNickname()%></h1>
                         <div >
-                            <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;">Nombre Apellido</p>
+                            <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;"><%=dtu.getNombre()%> <%=dtu.getApellido()%></p>
                             <div style="display:flex;">
                                 <img src="vector/email.svg" style="width: 23px;margin-left: 8px;" alt=""data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Email"data-bs-custom-class="custom-tooltip" >
-                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;">email@gmail.com</p>
+                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;"><%=dtu.getEmail()%></p>
                             </div>
 
                         </div>
@@ -50,7 +55,7 @@
                         <div>
                             <div style="display:flex; ">
                                 <img src="vector/FechaNac.svg" style="width: 23px;margin-left: 8px;" alt="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Fecha de nacimiento"data-bs-custom-class="custom-tooltip">
-                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;">15/07/2003</p>
+                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0;"><%=dtu.getFecha()%></p>
                             </div>
                             <div style="display:flex;">
                                 <img src="vector/institucion.svg" style="width: 23px;margin-left: 8px;" alt="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Institucion"data-bs-custom-class="custom-tooltip">
