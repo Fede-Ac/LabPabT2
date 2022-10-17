@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import datatypes.DtFecha;
 import datatypes.DtProfesor;
@@ -87,8 +88,10 @@ public class ModificarUsuario extends HttpServlet {
 	            DtSocio dts = new DtSocio(nick, nombre, apellido, email, pass, img, fecha, null);
 	            icon.modificarUsuario((DtUsuario)dts);
 	        }
-	        
-	        //request.setAttribute("mensaje", "Se modificaron correctamente los datos del usuario " + nick);
+	      
+	        HttpSession sesion = request.getSession();
+	        sesion.setAttribute("mensaje", "Se modificaron correctamente los datos del usuario " + nick);
+	        response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
 
 }
