@@ -5,6 +5,7 @@
 <%@page import="datatypes.DtUsuario"%>
 <%@page import="datatypes.DtSocio"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="java.io.PrintStream"%>
 <%@page import="interfaces.IControladorActividadDeportiva"%>
 <%@page import="interfaces.IControladorClase"%>
 <%@page import="interfaces.IControladorUsuario"%>
@@ -122,6 +123,8 @@
 									}
 								}
 							}
+							
+							String curTime = String.format("%02d:%02d", inicio.getHora(), inicio.getMin());
 						%>
                         <div class="col">
                             <div class="card custom-card" style="width: 16rem; margin-bottom: 30px;">
@@ -135,7 +138,7 @@
         
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=url%></a></li>
-                                        <li class="list-group-item" style="text-align: center;"><%=inicio%></li>
+                                        <li class="list-group-item" style="text-align: center;"><%=inicio.getDia()%>/<%=inicio.getMes()%>/<%=inicio.getAnio()%> <%=curTime%></li>
                                         
                                         
   										<button type="button" style="margin-top: 15px;" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalSocios<%=cont%>" data-actividad="<%=nombre%>">Ver socios</button>
