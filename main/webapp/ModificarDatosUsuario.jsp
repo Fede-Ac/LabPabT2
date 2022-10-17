@@ -40,7 +40,11 @@
                 <br>
                 <h4 style="text-align:center ;">Modifique los datos que quiera cambiar.</h4>
                 <br><br>
+        <form action="ModificarUsuario" method="post">     
                 <div class="form-floating mb-3">
+                	<input type="hidden" value="<%=dtu.getNickname()%>" name= "nickUsuario">
+                	<input type="hidden" value="<%=dtu.getEmail()%>" name= "mailkUsuario">
+                    <input type="hidden" value="<%=dtu.getContrasenia()%>" name= "passUsuario">
                     <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getNombre()%>" name= "nomUsuario">
                     <label for="floatingInput">Nombre</label>
                 </div>
@@ -51,7 +55,7 @@
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="text" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha().getDia()%>/<%=dtu.getFecha().getMes()%>/<%=dtu.getFecha().getAnio()%>" name="fecNacimiento">
+                    <input type="text" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha().getDia()%>-<%=dtu.getFecha().getMes()%>-<%=dtu.getFecha().getAnio()%>" name="fecNacimiento">
                     <label for="floatingPassword">Fecha de nacimiento</label>
                 </div>
                 <br> <br>
@@ -64,15 +68,15 @@
                 	DtProfesor dtp = (DtProfesor)dtu;
                 %>              
 	                <div class="form-floating">
-	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"><%=dtp.getDescripcion()%></textarea>
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="descProf" style="height: 100px"><%=dtp.getDescripcion()%></textarea>
 	                    <label for="floatingTextarea2">Descripción</label>
 	                </div><br><br>
 	                <div class="form-floating">
-	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"><%=dtp.getBiografia()%></textarea>
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="bioProf" style="height: 100px"><%=dtp.getBiografia()%></textarea>
 	                    <label for="floatingTextarea2">Biografía (opcional)</label>
 	                </div><br><br>
 	                <div class="form-floating mb-3">
-	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtp.getSitioWeb()%>">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name = "urlProf" value="<%=dtp.getSitioWeb()%>">
 	                    <label for="floatingInput">Sitio web (opcional)</label>
                 	</div> <br> <br> 
                 <%} %>
@@ -261,8 +265,9 @@
                     <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
                     <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
                 </div>
-                
+        	</form>         
             </div>
+         
         </div>
 
     </div>
