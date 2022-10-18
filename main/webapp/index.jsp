@@ -46,7 +46,12 @@
             <div class="contenedor2" >
                 <div class="row">
                     <hr class="dashed col" style="margin-top:auto ; margin-bottom:auto">
-                    <a class="btn btn-primary btn-lg boton col" href="IniciarSesion.jsp">COMIENZA AQUI</a>
+                    <%if (tipoUsuario == "Visitante"){%>
+                    	<a class="btn btn-primary btn-lg boton col" href="IniciarSesion.jsp">COMIENZA AQUI</a>
+                    	
+                    <%}else{%>
+						<a class="btn btn-primary btn-lg boton col" href="ConsultaUsuario.jsp">COMIENZA AQUI</a>
+					<%} %>
                     <hr class="dashed col" style="margin-top:auto ; margin-bottom:auto">
                 </div>
             </div>

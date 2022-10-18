@@ -56,7 +56,7 @@ if(tipoUsuario == null){
                         <%} %>
                         <%if(tipoUsuario.equals("Visitante")){ %> 
                         <li><a class="dropdown-item" href="IniciarSesion.jsp">Iniciar sesion</a></li>
-                        <li><a class="dropdown-item" href="#">Crear cuenta</a></li>
+                        <li><a class="dropdown-item disabled" href="#">Crear cuenta</a></li>
                         <%} %>
                         <%if(!tipoUsuario.equals("Visitante")){ %> 
                         <li>
