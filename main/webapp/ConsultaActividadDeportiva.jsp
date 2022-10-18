@@ -105,6 +105,8 @@
 														<div style="display: grid;">
 															<div class="row">
 																<%
+																if(!a.getClases().isEmpty()){
+																
 																for (DtClase dtc : a.getClases()) {
 																%>
 																<div class="col">
@@ -134,7 +136,10 @@
 																</div>
 																<%
 																}
+																}else{
 																%>
+																	<p style="text-align: center">No tiene clases.</p>
+																<%} %>
 															</div>
 														</div>
 													</div>

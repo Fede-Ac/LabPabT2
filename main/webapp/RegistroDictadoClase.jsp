@@ -118,12 +118,15 @@
                 <br>
                 <hr class="dashed">
                 <br> <br>
+                
+                <%if(!clasesNoRegistradas.isEmpty()){ %>
 
                 <div id="carouselExampleControls" style="width: 828px ; margin-left: auto;margin-right: auto;" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                     	
                     	
                     	<%
+                    	
                     	int i = 1;
                     	boolean primeraVez = true;
                     	for(DtClase c : clasesNoRegistradas){%>
@@ -169,9 +172,7 @@
                     		</div>
 		                    </div>
                     	<%}%>
-                    	
-
-
+                    
 
 
 
@@ -190,6 +191,9 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
+                  <% }else{%>
+                  		<p style="text-align: center">No hay clases disponibles segun la seleccion.</p>
+                  <%} %>
             </div>
         </div>
 

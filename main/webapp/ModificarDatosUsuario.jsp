@@ -104,7 +104,13 @@
 	                    <label for="floatingInput">Sitio web (opcional)</label>
                 	</div>
                 <%} %>
-                 
+                
+                <br> 
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
+                </div>
+                 </form> 
                 
                 <%if(dtu instanceof DtSocio){ %>
                 <br> <br> 
@@ -112,6 +118,8 @@
                     <p style="margin:auto ; padding-right:19px ; font-size: 30px;">Eliminar registros?</p>
                     <hr class="dashed col" style="margin-top: 23px;">
                 </div> <br> <br>
+                
+                <%if(!clasesRegistradas.isEmpty()){ %>
                 <div id="carouselExampleControls" style="width: 828px ; margin-left: auto;margin-right: auto;" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                     	
@@ -183,14 +191,14 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
+                  <%}else{ %>
+                  	<p style="text-align: center">No esta registrado a ninguna clase.</p>
+                  <%} %>
+                  
                 <%} %>
                 
-                <br> <br> <br>
-                <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
-                </div>
-        	</form>         
+                
+        	        
             </div>
          
         </div>
