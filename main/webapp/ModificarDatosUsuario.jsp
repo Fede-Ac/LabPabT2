@@ -1,9 +1,15 @@
+
 <%@page import="interfaces.IControladorUsuario"%>
 <%@page import="datatypes.DtSocio"%>
 <%@page import="datatypes.DtUsuario"%>
 <%@page import="datatypes.DtClase"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="interfaces.IControladorClase"%>
+
+<%@page import="datatypes.DtProfesor"%>
+<%@page import="datatypes.DtUsuario"%>
+<%@page import="interfaces.IControladorUsuario"%>
+
 <%@page import="interfaces.Fabrica"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -38,6 +44,12 @@
 	}
 %>
 
+<%
+	DtUsuario dtu = iconU.consultaUsuario(nickname);
+	String dia = String.format("%02d", dtu.getFecha().getDia());
+	String mes = String.format("%02d", dtu.getFecha().getMes());
+%>
+
     <div class="contenedor-total">
 
         <div class="contenedor">
@@ -52,38 +64,50 @@
                 <br>
                 <h4 style="text-align:center ;">Modifique los datos que quiera cambiar.</h4>
                 <br><br>
+        <form action="ModificarUsuario" method="post">     
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                	<input type="hidden" value="<%=dtu.getNickname()%>" name= "nickUsuario">
+                	<input type="hidden" value="<%=dtu.getEmail()%>" name= "mailkUsuario">
+                    <input type="hidden" value="<%=dtu.getContrasenia()%>" name= "passUsuario">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getNombre()%>" name= "nomUsuario" required>
                     <label for="floatingInput">Nombre</label>
                 </div>
                 <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getApellido()%>" name="apellidoUsuario" required>
                     <label for="floatingInput">Apellido</label>
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha().getAnio()%>-<%=mes%>-<%=dia%>" name="fecNacimiento" required>
                     <label for="floatingPassword">Fecha de nacimiento</label>
                 </div>
                 <br> <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getpfp()%>" name="imagen">
                     <label for="floatingInput">URL de imágen de perfil</label>
                 </div><br>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Descripción</label>
-                </div><br><br>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Biografía (opcional)</label>
-                </div><br><br>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Sitio web (opcional)</label>
-                </div> <br> <br>
                 
+                <%if((dtu instanceof DtProfesor)){
+                	DtProfesor dtp = (DtProfesor)dtu;
+                %>              
+	                <div class="form-floating">
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="descProf" style="height: 100px" required><%=dtp.getDescripcion()%></textarea>
+	                    <label for="floatingTextarea2">Descripción</label>
+	                </div><br><br>
+	                <div class="form-floating">
+	                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="bioProf" style="height: 100px"><%=dtp.getBiografia()%></textarea>
+	                    <label for="floatingTextarea2">Biografía (opcional)</label>
+	                </div><br><br>
+	                <div class="form-floating mb-3">
+	                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name = "urlProf" value="<%=dtp.getSitioWeb()%>">
+	                    <label for="floatingInput">Sitio web (opcional)</label>
+                	</div>
+                <%} %>
+                 
+                
+                <%if(dtu instanceof DtSocio){ %>
+                <br> <br> 
                 <div style="display:flex ;">
                     <p style="margin:auto ; padding-right:19px ; font-size: 30px;">Eliminar registros?</p>
                     <hr class="dashed col" style="margin-top: 23px;">
@@ -159,15 +183,16 @@
                       <span class="visually-hidden">Next</span>
                     </button>
                   </div>
-                
+                <%} %>
                 
                 <br> <br> <br>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px ;">Cancelar</button>
-                    <button type="button" class="btn btn-primary btn-lg boton2" >Confirmar</button>
+                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
                 </div>
-                
+        	</form>         
             </div>
+         
         </div>
 
     </div>

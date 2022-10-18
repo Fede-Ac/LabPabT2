@@ -87,14 +87,7 @@
     </div>
     
     
-    
-    
 
-  <form oninput="x.value=a.value">
-<input type="email" id="a">
-+<input type="number" id="b" value="25">
-=<output name="x" for="a"></output>
-</form>
 
 <%@include file="/footer.jsp" %>
 </body>
