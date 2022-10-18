@@ -1,6 +1,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="interfaces.IControladorActividadDeportiva"%>
+<%@page import="interfaces.IControladorUsuario"%>
 <%@page import="interfaces.Fabrica"%>
+<%@page import="datatypes.DtUsuario" %>
+<%@page import="datatypes.DtProfesor" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,7 +24,17 @@
 <%
 	Fabrica fabrica = Fabrica.getInstancia();
 	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
-	ArrayList<String> actividades = icon.getActividadesDeportivas();
+	IControladorUsuario iconU = fabrica.getIControladorUsuario();
+	HttpSession sesion = request.getSession();
+	String nickname = (String)sesion.getAttribute("nombreUsuario");
+	ArrayList<String> actividades = new ArrayList<String>();
+	if(nickname != null){
+		DtUsuario dtu = iconU.consultaUsuario(nickname);
+		if(dtu instanceof DtProfesor){
+			actividades = icon.listarActividadesDeportivas(((DtProfesor)dtu).getInstitucion().getNombre());
+		}
+	}
+	
 %>
 
 

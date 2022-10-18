@@ -44,14 +44,17 @@
         <div class="contenedor">
             <div class="contenedor2" >
                 <div style="display:flex; flex-direction:row;">
-                    <div class="perfil-icono perfil-icono-chico" style="width: 130px; height: 130px; background-image: url(<%=urlimagen%>), url('imagenes/defPerfil.png')">
-                            <div class="icono-tipo-usr"data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Profesor"data-bs-custom-class="custom-tooltip">
-                                <%if(dtu instanceof DtSocio){ %>
+                    <div class="perfil-icono perfil-icono-chico" style="width: 130px; height: 130px; background-image: url('<%=urlimagen%>'), url('imagenes/defPerfil.png')">
+                         <%if(dtu instanceof DtSocio){ %>
+                            <div class="icono-tipo-usr"data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Socio"data-bs-custom-class="custom-tooltip">
                                 	S
-                                <%}else{ %>
-                                	P
-                                <%} %>
                             </div>
+                          <%}else{ %>
+                                <div class="icono-tipo-usr"data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Profesor"data-bs-custom-class="custom-tooltip">
+                                	P
+                                </div>
+                                <%} %>
+                            
                     </div>
                     <div style="margin-right:44px;">
                         <h1><%=dtu.getNickname()%></h1>
@@ -139,7 +142,7 @@
                             		<input type="hidden" name="clase" id="clase" value="<%=c.getNombre() %>">
 	                            	<div class="card-body" style="padding-top:0; padding-bottom: 0;">
 		                            	<ul class="list-group list-group-flush">
-		                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=c.getUrl()%></a></li>
+		                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com"><%=c.getUrl()%></a></li>
 		                                	<li class="list-group-item" style="text-align: center;"><%=c.getFechaInicio()%></li>
 											
 		                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg()%></li>
@@ -285,7 +288,7 @@
 																				<li class="list-group-item"
 																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg()%></li>
 																				<li class="list-group-item" style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">
-																					<a href="#" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
+																					<a href="ConsultaDictadoClase.jsp" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
 																				</li>
 																			</ul>
 																		</div>

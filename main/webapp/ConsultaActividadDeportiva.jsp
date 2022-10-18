@@ -122,13 +122,13 @@
 																				<li class="list-group-item"><a
 																					class="card-text p-small"
 																					style="display: block; width: fit-content; margin: auto; color: #ee8f4c; padding-bottom: 8px;"
-																					href="<%=dtc.getUrl()%>"><%=dtc.getUrl()%></a></li>
+																					href="http://<%=dtc.getUrl()%>"><%=dtc.getUrl()%></a></li>
 																				<li class="list-group-item"
 																					style="text-align: center;"><%=dtc.getFechaInicio()%></li>
 																				<li class="list-group-item"
 																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg()%></li>
 																				<li class="list-group-item" style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">
-																					<a href="#" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
+																					<a href="ConsultaDictadoClase.jsp" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
 																				</li>
 																			</ul>
 																		</div>

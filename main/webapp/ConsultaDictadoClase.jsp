@@ -160,7 +160,7 @@
 									                    		if(!sociosEnClase.isEmpty()){
 									                    		for(DtSocio H : sociosEnClase){
 									                    	%>
-									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico" style="background-image: url(<%=H.getpfp()%>), url('imagenes/defPerfil.png')"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
+									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico" style="background-image: url('<%=H.getpfp()%>'), url('imagenes/defPerfil.png')"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
 									                    	<%
 																}
 									                    		}else{
