@@ -20,10 +20,10 @@
             <div class="contenedor2" >
 				<form action="IniciarSesion" method="post">
 
-                <div class="row">
-                    <hr class="dashed col">
-                    <h1 class="col" style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">Bienvenido/a!</h1>
-                    <hr class="dashed col">
+                <div class="row" id="rowTitulo">
+                    <hr class="dashed col" id="dashtop">
+                    <h1 class="col" id="tituloPantalla" style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">Bienvenido/a!</h1>
+                    <hr class="dashed col" id="dashbottom">
                 </div>
                 <br>
                 <h4 style="text-align:center ;">Ingrese sus datos para acceder a su cuenta.</h4>

@@ -176,12 +176,6 @@ p.p-small{
     .icono{
         display: none;
     }
-    .desc1{
-        text-align: center;
-    }
-    .header-1{
-        justify-content: center;
-    }
 }
 
 hr.dashed {
@@ -254,4 +248,118 @@ hr.dashed {
 .hide{
 	display: none;
 }
+
+@media only screen and (max-width: 600px) {
+	.contenedor-total{
+		width: 100%;
+	}
+	.btn.btn-primary.btn-lg.boton.col{
+		flex-grow: 4;
+	    height: 50px;
+	    font-size: 20px;
+	}
+	#carouselExampleIndicators{
+		width: 90%!important;
+   		margin-left: 5%!important;
+	}
+	#decoracion{
+		opacity: 0;
+	}
+	p{
+		font-size: 16px;
+	}
+	#breakNoMovil{
+		display: none;
+	}
+	#tituloPantalla{
+		font-size: 25px!important;
+		text-shadow: 0px 2px #b34d1d!important;
+		font-weight: 800;
+	}
+	#dashtop{
+		opacity: 0;
+   		margin: 4px;
+	}
+	#dashbottom{
+   		margin-top: 12px;
+	}
+	#cartaVertical{
+		margin: auto;
+   		margin-bottom: 30px;
+	}
+	.img-ranking{
+		display: none;
+	}
+	#rankingTexto{
+		display: block!important;
+	}
+	#rankingFlex{
+		justify-content: center!important;
+	}
+	#rowTitulo{
+		display: block!important;
+	}
+	#perfilIc{
+		order: 2!important;
+	}
+	#flexBuscar{
+		display: block!important;
+	}
+	#listaMovil{
+		display:block!important;
+	}
+	#listaPC{
+		display:none!important;
+	}
+	#buscarClases{
+		margin-left: 45px!important;
+	}
+	#flexPerfil{
+		flex-wrap: wrap;
+	}
+	.perfil-icono.perfil-icono-chico{
+		width: 100px!important;
+		height: 100px!important;
+	}
+	#infoBasicaPerfil{
+		margin-right: 0px!important;
+	}
+	#infoEspecificaPerfil{
+		border-left: 0!important;
+		padding-left: 0!important;
+	}
+	#botonEditarPerfil{
+		top: 0!important;
+		right: 0!important;
+	}
+	#headingPerfil{
+		font-size: 22px!important;
+	}
+	#flexActividad{
+		margin-top: 30px!important;
+	}
+	#cancelarModificar, #confirmarModificar{
+		width: 130px;
+	    font-size: 16px;
+	    padding-left: 20px;
+	    padding-right: 20px;
+	}
+}
+
+
+::-webkit-scrollbar{width:0;height:0}
+::-webkit-scrollbar-thumb{background:transparent}
+::-webkit-scrollbar-track{background-color:transparent}
+#nav-wrapper {
+  border-left:3px solid #ff9b5561;
+  border-right:3px solid #ff9b5561;
+  max-width: 400px;
+  margin: 0 auto;
+}
+ul,li{list-style:none;padding:0}
+.nav.nav-tabs{display:block;overflow:auto;white-space:nowrap; border-bottom:0}
+.nav.nav-tabs li{display:inline-block}
+#contCarta{display:inline-block;color:#fff;padding:16px}
+
+
 

@@ -56,21 +56,23 @@
 
 
             <div class="contenedor2">
-                <div class="row">
-                    <hr class="dashed col">
-                    <h1 class="col"
+                <div class="row" id="rowTitulo">
+                    <hr class="dashed col" id="dashtop">
+                    <h1 class="col" id="tituloPantalla"
                         style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">
                         Clases</h1>
-                    <hr class="dashed col">
+                    <hr class="dashed col" id="dashbottom">
                 </div>
                 
-	                <div style="display: flex; justify-content:right; align-items: right;">
+	                <div id="rankingFlex" style="display: flex; justify-content:right; align-items: right;">
 	                <form method="post">
 	                	<input type="hidden" name="ranking" id="ranking" value="ranking">
 	                    <button type="submit" class="btn btn-primary btn-lg boton2 small ranking" data-bs-toggle="tooltip"
 	                        data-bs-placement="bottom" data-bs-title="Ordenar por no. de socios"
 	                        data-bs-custom-class="custom-tooltip"><img class="img-ranking" src="vector/ranking.svg"
-	                            style="width: 34px;"></button>
+	                            style="width: 34px;">
+	                            <p id="rankingTexto" style="display: none">Ordenar por número de socios</p>
+	                    </button>
 	                </form>
 	                </div>
                 
@@ -129,7 +131,7 @@
 							String curTime = String.format("%02d:%02d", inicio.getHora(), inicio.getMin());
 						%>
                         <div class="col">
-                            <div class="card custom-card" style="width: 16rem; margin-bottom: 30px;">
+                            <div class="card custom-card" id="cartaVertical" style="width: 16rem; margin-bottom: 30px;">
 
                                 <img style="height: 200px; object-fit:cover;"
                                     src="<%=picture%>"

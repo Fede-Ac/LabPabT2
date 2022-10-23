@@ -56,10 +56,10 @@
           
 
             <div class="contenedor2" >
-                <div class="row">
-                    <hr class="dashed col">
-                    <h1 class="col" style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">Editar&nbspPerfil</h1>
-                    <hr class="dashed col">
+                <div class="row" id="rowTitulo">
+                    <hr class="dashed col" id="dashtop">
+                    <h1 class="col" id="tituloPantalla" style="font-size:50px;letter-spacing: 2px;text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">Editar&nbspPerfil</h1>
+                    <hr class="dashed col" id="dashbottom">
                 </div>
                 <br>
                 <h4 style="text-align:center ;">Modifique los datos que quiera cambiar.</h4>
@@ -107,8 +107,8 @@
                 
                 <br> 
                 <div style="display: flex; justify-content: center; align-items: center;">
-                    <button type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
+                    <button id="cancelarModificar" type="button" class="btn btn-primary btn-lg boton2" style="margin-right:50px" value="Go Back" onclick="history.back()">Cancelar</button>
+                    <button id="confirmarModificar" type="submit" class="btn btn-primary btn-lg boton2" >Confirmar</button>
                 </div>
                  </form> 
                 
@@ -118,6 +118,11 @@
                     <p style="margin:auto ; padding-right:19px ; font-size: 30px;">Eliminar registros?</p>
                     <hr class="dashed col" style="margin-top: 23px;">
                 </div> <br> <br>
+                
+                
+                
+                <div id="listaPC">
+                
                 
                 <%if(!clasesRegistradas.isEmpty()){ %>
                 <div id="carouselExampleControls" style="width: 828px ; margin-left: auto;margin-right: auto;" class="carousel slide" data-bs-ride="carousel">
@@ -194,6 +199,55 @@
                   <%}else{ %>
                   	<p style="text-align: center">No esta registrado a ninguna clase.</p>
                   <%} %>
+                  
+                  </div>
+                  
+                  <div id="listaMovil" style="display: none;">
+	                  	<%if(!clasesRegistradas.isEmpty()){ %>
+	                 	<div id="nav-wrapper">
+						    <ul class="nav nav-tabs">
+						    
+								<%for(DtClase c : clasesRegistradas){ %>
+						    	
+						        <li><div id="contCarta">
+									<div class="card custom-card" style="width: 16rem;">
+                            	<img style="height: 200px; object-fit:cover;"src="<%=c.getPicture()%>" onerror="this.onerror=null; this.src='imagenes/defClase.png'" class="card-img-top" alt="...">
+                            	<h5 class="card-title custom-card-title"><%=c.getNombre()%></h5>
+                            	<form action="EliminarRegistroDictadoClase" method="post">
+                            		<input type="hidden" name="clase" id="clase" value="<%=c.getNombre() %>">
+	                            	<div class="card-body" style="padding-top:0; padding-bottom: 0;">
+		                            	<ul class="list-group list-group-flush">
+		                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com/"><%=c.getUrl()%></a></li>
+		                                	<li class="list-group-item" style="text-align: center;"><%=c.getFechaInicio()%></li>
+		                                	
+									    		<input class="btn btn-primary btn-lg boton2 small" type="submit" style="margin-top: 15px;" value="Eliminar" />
+											
+		                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg()%></li>
+		                                </ul>
+	                            	</div>
+                            	</form>
+                        	</div> 
+								</div> </li>
+						        
+						        <%}%>
+	
+						    </ul>
+						</div>
+	                  
+	                  	<% }else{%>
+	                  		<p style="text-align: center">No esta registrado a ninguna clase.</p>
+	                  <%} %>
+	                  
+                  </div>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   
                 <%} %>
                 

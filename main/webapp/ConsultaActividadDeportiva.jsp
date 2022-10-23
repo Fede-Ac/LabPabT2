@@ -46,16 +46,16 @@
 
 
 			<div class="contenedor2">
-				<div class="row">
-					<hr class="dashed col">
-					<h1 class="col"
+				<div class="row" id="rowTitulo">
+					<hr class="dashed col" id="dashtop">
+					<h1 class="col" id="tituloPantalla"
 						style="font-size: 50px; letter-spacing: 2px; text-shadow: 0px 3px #b34d1d; color: #FF9B55; text-align: center;">
 						Actividades&nbspDeportivas</h1>
-					<hr class="dashed col">
+					<hr class="dashed col" id="dashbottom">
 				</div>
 				<%if(tipoUsuario.equals("Profesor")){ %>
 				
-				<div style="display: flex; justify-content: right; align-items: right;">
+				<div id="rankingFlex" style="display: flex; justify-content: right; align-items: right;">
 					<form method="post">
 						<input type="hidden" name="ranking" id="ranking" value="ranking">
 						<button type="submit"
@@ -65,6 +65,7 @@
 							data-bs-custom-class="custom-tooltip">
 							<img class="img-ranking" src="vector/ranking.svg"
 								style="width: 34px;">
+							<p id="rankingTexto" style="display: none">Ordenar por número de clases</p>
 						</button>
 					</form>
 				</div>
@@ -81,7 +82,7 @@
 							DtFecha registro = a.getFechaReg();
 						%>
 						<div class="col">
-							<div class="card custom-card" style="width: 16rem; margin-bottom: 30px;">
+							<div class="card custom-card" id="cartaVertical" style="width: 16rem; margin-bottom: 30px;">
 								<img style="height: 200px; object-fit: cover;" src="<%=a.getPicture() %>" onerror="this.onerror=null; this.src='imagenes/defActDep.png'" class="card-img-top" alt="...">
 								<h5 class="card-title custom-card-title"><%=nombre%></h5>
 								<div class="card-body">

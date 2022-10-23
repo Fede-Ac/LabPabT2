@@ -13,7 +13,7 @@
 <body onload="mostrarNotificacion();">
 
     <div class="contenedor-total">
-        <img src="imagenes/decoracion.png" style="width: 100%; z-index: 1; position: relative;" alt="decoracion">
+        <img src="imagenes/decoracion.png" id="decoracion" style="width: 100%; z-index: 1; position: relative;" alt="decoracion">
         <!--<div style="background-image: url(imagenes/decoracion.png); width: 100%; height: 471px; background-repeat: no-repeat; background-size:contain;"></div>-->
         <div id="carouselExampleIndicators" class="carousel slide" style="width: 60%; margin-left:20% ; z-index: 2; position:relative; top: 0px; margin-top: -36%;box-shadow: 0px 4px 4px rgba(90, 13, 13, 0.356); border-radius: 40px;" data-bs-ride="true">
             <div class="carousel-indicators">
@@ -61,14 +61,14 @@
                 <div style="display:flex;">
                     <div class="desc1">
                         <div class="header-1" style="display: flex;">
-                            <h1 id="titulo">NUESTRO</h1><h1 style="color: #FF9B55;">OBJETIVO</h1>    
+                            <h1 id="titulo">NUESTRO&nbsp</h1><h1 style="color: #FF9B55;">OBJETIVO</h1>    
                         </div>
                         <p style="width: 100%; margin: 0; padding: 0; margin-top: 16px;">La propagación del coronavirus en el mundo ha afectado considerablemente la salud de las personas tanto por los efectos del virus y los contagios, como por la suspensión de actividades deportivas en general y el cierre de clubes y gimnasios deportivos. </p>
                     </div>
                     <img class="icono" src="vector/pesa.svg" alt="" >
                     
                 </div>
-                <br> <br>
+                <br id="breakNoMovil"> <br>
                 <div style="display:flex;">
                     <img class="icono" src="vector/tenis.svg" alt="" >
                     <div class="desc1">
