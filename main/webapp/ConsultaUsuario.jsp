@@ -44,7 +44,7 @@
         <div class="contenedor">
             <div class="contenedor2">
                 <div id="flexPerfil" style="display:flex; flex-direction:row;">
-                    <div class="perfil-icono perfil-icono-chico" style="width: 130px; height: 130px; background-image: url('<%=urlimagen%>'), url('imagenes/defPerfil.png')">
+                    <div id="imgPefil" class="perfil-icono perfil-icono-chico" style="width: 130px; height: 130px; background-image: url('<%=urlimagen%>'), url('imagenes/defPerfil.png')">
                          <%if(dtu instanceof DtSocio){ %>
                             <div class="icono-tipo-usr"data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Socio"data-bs-custom-class="custom-tooltip">
                                 	S
@@ -58,7 +58,7 @@
                     </div>
                     <div id="infoBasicaPerfil" style="margin-right:44px;">
                         
-                        <div style="width: 194px; margin: 0 auto;">
+                        <div id="contDatosBasicos" style="width: 194px; margin: 0 auto;">
 						    <ul style="display: block; overflow: auto; white-space: nowrap; border-bottom: 0; padding-left: 0;">
 						   	 	<h1><%=dtu.getNickname()%></h1>
 		                        <div>

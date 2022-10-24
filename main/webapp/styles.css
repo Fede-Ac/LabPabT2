@@ -317,7 +317,7 @@ hr.dashed {
 	#flexPerfil{
 		flex-wrap: wrap;
 	}
-	.perfil-icono.perfil-icono-chico{
+	#imgPefil{
 		width: 100px!important;
 		height: 100px!important;
 	}
@@ -344,6 +344,15 @@ hr.dashed {
 	    padding-left: 20px;
 	    padding-right: 20px;
 	}
+	#imgLogo{
+		height: 21px!important;
+	}
+}
+
+@media only screen and (max-width: 435px) {
+	#contDatosBasicos{
+		width: 146px!important;
+	}	
 }
 
 

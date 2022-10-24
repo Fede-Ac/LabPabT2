@@ -20,7 +20,7 @@ if(tipoUsuario == null){
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="index.jsp" ><img style="height: 30px;" src="imagenes/logo.png" alt="logo"></a>
+                <a class="navbar-brand" href="index.jsp" ><img id="imgLogo" style="height: 30px;" src="imagenes/logo.png" alt="logo"></a>
             </div>
             	
     
