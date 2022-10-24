@@ -74,6 +74,7 @@
 				<div style="display: grid;">
 					<div class="row">
 						<%
+						int cont = 1;
 						for (DtActividadDeportiva a : dtActividades) {
 							String nombre = a.getNombre();
 							String descripcion = a.getDescripcion();
@@ -90,10 +91,10 @@
 										<li class="list-group-item" style="padding-top: 0;">
 											<p class="card-text p-small" style="text-align: center; margin-bottom: 10px;"><%=descripcion%></p>
 										</li>
-										<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=nombre%>" data-actividad="<%=nombre%>">Ver clases</button>
+										<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=cont%>" data-actividad="<%=nombre%>">Ver clases</button>
 
 										<!-- inicio Modal -->
-										<div class="modal fade" id="modalClases<%=nombre%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="modalClases<%=cont%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog modal-xl">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -172,6 +173,7 @@
 						</div>
 
 						<%
+						cont++;
 						}
 						%>
 

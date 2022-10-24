@@ -288,6 +288,7 @@
 	                    	<%
 	                    	int i2 = 1;
 	                    	boolean primeraVez2 = true;
+	                    	int cont = 0;
 	                    	for(DtActividadDeportiva a : actividadesUsuario){%>
 	                    		
 	                    		<%if(i2 == 1){ %>
@@ -308,10 +309,10 @@
 											<li class="list-group-item" style="padding-top: 0;">
 												<p class="card-text p-small" style="text-align: center; margin-bottom: 10px;"><%=a.getDescripcion()%></p>
 											</li>
-											<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=a.getNombre()%>" data-actividad="<%=a.getNombre()%>">Ver clases</button>
+											<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=cont%>" data-actividad="<%=a.getNombre()%>">Ver clases</button>
 	
 											<!-- inicio Modal -->
-											<div class="modal fade" id="modalClases<%=a.getNombre()%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal fade" id="modalClases<%=cont%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 												<div class="modal-dialog modal-xl">
 													<div class="modal-content">
 														<div class="modal-header">
@@ -401,6 +402,7 @@
 					        	i2 = 1;
 					        }
 					        primeraVez2 = false;
+					        cont++;
 	                    	}
 	                    	
 	                    	if(i2 != 1){%>
@@ -440,7 +442,9 @@
 	                 	<div id="nav-wrapper">
 						    <ul class="nav nav-tabs">
 						    
-								<%for(DtActividadDeportiva a : actividadesUsuario){ %>
+								<%
+								int cont2 = 1;
+								for(DtActividadDeportiva a : actividadesUsuario){ %>
 						    	
 						        <li><div id="contCarta">
 									
@@ -453,10 +457,10 @@
 										<li class="list-group-item" style="padding-top: 0;">
 											<p class="card-text p-small" style="text-align: center; margin-bottom: 10px;"><%=a.getDescripcion()%></p>
 										</li>
-										<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=a.getNombre()%>2" data-actividad="<%=a.getNombre()%>">Ver clases</button>
+										<button type="button" class="btn btn-primary btn-lg boton2 small" data-bs-toggle="modal" data-bs-target="#modalClases<%=cont2%>B" data-actividad="<%=a.getNombre()%>">Ver clases</button>
 
 										<!-- inicio Modal -->
-										<div class="modal fade" id="modalClases<%=a.getNombre()%>2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal fade" id="modalClases<%=cont2%>B" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 											<div class="modal-dialog modal-xl">
 												<div class="modal-content">
 													<div class="modal-header">
@@ -532,7 +536,9 @@
 
 								</div> </li>
 						        
-						        <%}%>
+						        <%
+						        cont2++;
+								}%>
 	
 						    </ul>
 						</div>
