@@ -14,8 +14,10 @@ import datatypes.DtProfesor;
 import datatypes.DtSocio;
 import datatypes.DtUsuario;
 import excepciones.NoExistenUsuariosEx;
-import interfaces.Fabrica;
-import interfaces.IControladorUsuario;
+
+import publicadores.ControladorUsuarioPublish;
+import publicadores.ControladorUsuarioPublishService;
+import publicadores.ControladorUsuarioPublishServiceLocator;
 
 
 /**
@@ -46,13 +48,11 @@ public class IniciarSesion extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nickname = request.getParameter("nickname");
 		String pass = request.getParameter("password");
-		Fabrica fabrica = Fabrica.getInstancia();
 		DtUsuario dtu;
-		IControladorUsuario icon = fabrica.getIControladorUsuario();
 		HttpSession sesion = request.getSession();
 		
 		try {
-			dtu = icon.existeUsuario(nickname, pass);
+			dtu = existeUsuario(nickname, pass);
 			
 			if (dtu instanceof DtProfesor) {
 				sesion.setAttribute("tipoUsuario","Profesor");
@@ -78,6 +78,13 @@ public class IniciarSesion extends HttpServlet {
 		//rd.forward(request, response);
 		response.sendRedirect(request.getContextPath() + "/index.jsp");
 		
+	}
+	
+	//Operación consumida 
+	public DtUsuario existeUsuario(String nickname, String pass) {
+		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
+			port.existeUsuario(nickname, pass);
 	}
 
 }

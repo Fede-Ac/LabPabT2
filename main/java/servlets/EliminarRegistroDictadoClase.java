@@ -14,6 +14,10 @@ import interfaces.Fabrica;
 import interfaces.IControladorActividadDeportiva;
 import interfaces.IControladorUsuario;
 
+import publicadores.ControladorActDepPublish;
+import publicadores.ControladorActDepPublishService;
+import publicadores.ControladorActDepPublishServiceLocator;
+
 /**
  * Servlet implementation class EliminarRegistroDictadoClase
  */
@@ -43,12 +47,11 @@ public class EliminarRegistroDictadoClase extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clase = request.getParameter("clase");
 		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
 		HttpSession sesion = request.getSession();
 		String socio = (String)sesion.getAttribute("nombreUsuario");
 		
 		try {
-			icon.eliminarRegistro(socio, clase);
+			eliminarRegistro(socio, clase);
 			sesion.setAttribute("mensaje", "Registro eliminado exitosamente");
 		} catch (RegistroRepetidoEx e) {
 			throw new ServletException(e.getMessage());
@@ -57,4 +60,12 @@ public class EliminarRegistroDictadoClase extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/ModificarDatosUsuario.jsp");
 	}
 
+	
+	//Operación consumida 
+	public void eliminarRegistro(String socio, String clase) {
+		ControladorActDepPublishService ccps = new ControladorActDepPublishServiceLocator();
+		ControladorActDepPublish port = ccps.getControladorActDepPublishPort();
+			port.eliminarRegistroClase(socio, clase);
+		
+	}
 }

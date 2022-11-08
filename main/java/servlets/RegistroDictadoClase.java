@@ -8,11 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datatypes.DtUsuario;
 import excepciones.RegistroRepetidoEx;
-import interfaces.Fabrica;
-import interfaces.IControladorActividadDeportiva;
-import interfaces.IControladorUsuario;
+import publicadores.ControladorActDepPublish;
+import publicadores.ControladorActDepPublishService;
+import publicadores.ControladorActDepPublishServiceLocator;
+
 
 /**
  * Servlet implementation class RegistroDictadoClase
@@ -42,13 +42,12 @@ public class RegistroDictadoClase extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String clase = request.getParameter("clase");
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
+
 		HttpSession sesion = request.getSession();
 		String socio = (String)sesion.getAttribute("nombreUsuario");
 		
 		try {
-			icon.altaRegistroDictadoDeClase(socio, clase);
+			altaRegistroDictadoDeClase(socio, clase);
 			sesion.setAttribute("mensaje", "Registrado a " + clase + " exitosamente.");
 		} catch (RegistroRepetidoEx e) {
 			throw new ServletException(e.getMessage());
@@ -57,4 +56,10 @@ public class RegistroDictadoClase extends HttpServlet {
 		response.sendRedirect(request.getContextPath() + "/RegistroDictadoClase.jsp");
 	}
 
+	//Operación consumida 
+	public void altaRegistroDictadoDeClase(String socio, String clase) {
+		ControladorActDepPublishService ccps = new ControladorActDepPublishServiceLocator();
+		ControladorActDepPublish port = ccps.getControladorActDepPublishPort();
+		port.altaRegistroDictadoDeClase(socio, clase);
+	}
 }

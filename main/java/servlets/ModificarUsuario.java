@@ -16,14 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datatypes.DtFecha;
-import datatypes.DtFechaHora;
-import datatypes.DtProfesor;
-import datatypes.DtSocio;
-import datatypes.DtUsuario;
+
 import excepciones.FechaInvalidaEx;
-import interfaces.Fabrica;
-import interfaces.IControladorUsuario;
+
+
+import publicadores.ControladorUsuarioPublish;
+import publicadores.ControladorUsuarioPublishService;
+import publicadores.ControladorUsuarioPublishServiceLocator;
+import publicadores.DtFecha;
+import publicadores.DtFechaHora;
+import publicadores.DtProfesor;
+import publicadores.DtSocio;
+import publicadores.DtUsuario;
 
 /**
  * Servlet implementation class ModificarUsuario
@@ -85,12 +89,7 @@ public class ModificarUsuario extends HttpServlet {
 			}
 			
 			DtFecha fechaNac = new DtFecha(gc);
-	        
-	        
-	 
-	        Fabrica fabrica = Fabrica.getInstancia();
-	        IControladorUsuario icon = fabrica.getIControladorUsuario();
-	        DtUsuario dtu = icon.consultaUsuario(nick);
+	        DtUsuario dtu = consultaUsuario(nick);
 
 	        if(dtu instanceof DtProfesor){
 	            String desc = request.getParameter("descProf");
@@ -98,11 +97,11 @@ public class ModificarUsuario extends HttpServlet {
 	            String url = request.getParameter("urlProf");
 
 	            DtProfesor dtp = new DtProfesor(nick, nombre, apellido, email, pass, img, fechaNac,desc,bio,url,null,null);
-	            icon.modificarUsuario((DtUsuario)dtp);
+	            modificarUsuario((DtUsuario)dtp);
 	        }
 	        else{
 	            DtSocio dts = new DtSocio(nick, nombre, apellido, email, pass, img, fechaNac, null);
-	            icon.modificarUsuario((DtUsuario)dts);
+	            modificarUsuario((DtUsuario)dts);
 	        }
 	      
 	        HttpSession sesion = request.getSession();
@@ -110,4 +109,16 @@ public class ModificarUsuario extends HttpServlet {
 	        response.sendRedirect(request.getContextPath() + "/index.jsp");
 	}
 
+	//Operación consumida
+	public void modificarUsuario(DtUsuario usuario) {
+		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
+		port.modificarUsuario(usuario);
+	}
+	
+	public DtUsuario consultaUsuario(String usuario) {
+		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
+		port.consultaUsuario(usuario);
+	}
 }

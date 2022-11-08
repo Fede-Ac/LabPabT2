@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datatypes.DtFecha;
-import datatypes.DtFechaHora;
+
 import excepciones.ClaseRepetidaEx;
 import excepciones.NoExistenUsuariosEx;
-import interfaces.Fabrica;
-import interfaces.IControladorClase;
+
+
+import publicadores.ControladorClasePublish;
+import publicadores.ControladorClasePublishService;
+import publicadores.ControladorClasePublishServiceLocator;
+import publicadores.DtFechaHora;
+import publicadores.DtFecha;
 
 /**
  * Servlet implementation class AltaDictadoClase
@@ -77,12 +81,9 @@ public class AltaDictadoClase extends HttpServlet {
 		Calendar c = Calendar.getInstance();
 		DtFecha fechaReg = new DtFecha(c);
 		
-		Fabrica fabrica = Fabrica.getInstancia();
-		IControladorClase icon = fabrica.getIControladorClase();
-		
 		
 		try {
-			icon.addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
+			addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
 		}catch(ClaseRepetidaEx e) {
 			sesion.setAttribute("mensajeError", e.getMessage());
 			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
@@ -97,4 +98,12 @@ public class AltaDictadoClase extends HttpServlet {
 		
 	}
 
+	
+	//Operación consumida 
+	public void addClase(String actDep, String nombre, DtFechaHora fechaInicio, String nomProf, String urlClase, DtFecha fechaReg, String urlImagen) {
+		ControladorClasePublishService ccp = new ControladorClasePublishServiceLocator();
+		ControladorClasePublish port = ccp.getControladorClasePublishPort();
+			port.addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
+	}
+	
 }
