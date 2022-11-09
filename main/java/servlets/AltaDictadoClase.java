@@ -15,11 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
-import excepciones.ClaseRepetidaEx;
-import excepciones.NoExistenUsuariosEx;
-
-
 import publicadores.ControladorClasePublish;
 import publicadores.ControladorClasePublishService;
 import publicadores.ControladorClasePublishServiceLocator;
@@ -84,14 +79,14 @@ public class AltaDictadoClase extends HttpServlet {
 		
 		try {
 			addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
-		}catch(ClaseRepetidaEx e) {
+		}catch(Exception e) {
 			sesion.setAttribute("mensajeError", e.getMessage());
 			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
 			return;
-		}catch (NoExistenUsuariosEx e) {
+		/*}catch (Exception e) {
 			sesion.setAttribute("mensajeError", e.getMessage());
 			response.sendRedirect(request.getContextPath() + "/AltaDictadoClase.jsp");
-			return;
+			return;*/
 		}
 		sesion.setAttribute("mensaje", "Clase " + nombre + " creada exitosamente.");
 		response.sendRedirect(request.getContextPath() + "/index.jsp");

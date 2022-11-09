@@ -1,9 +1,7 @@
-<%@page import="datatypes.DtFecha"%>
+<%@page import="publicadores.DtFecha"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="interfaces.IControladorActividadDeportiva"%>
-<%@page import="interfaces.Fabrica"%>
-<%@page import="datatypes.DtActividadDeportiva"%>
-<%@page import="datatypes.DtClase"%>
+<%@page import="publicadores.DtActividadDeportiva"%>
+<%@page import="publicadores.DtClase"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,18 +21,16 @@
 <body>
 
 	<%
-	Fabrica fabrica = Fabrica.getInstancia();
-	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
-	ArrayList<String> actividades = icon.getActividadesDeportivas();
+	ArrayList<String> actividades = getActividadesDeportivas();
 	ArrayList<DtActividadDeportiva> dtActividades = new ArrayList<DtActividadDeportiva>();
 	for (String a : actividades) {
-		dtActividades.add(icon.getDtActividadDeportiva(a));
+		dtActividades.add(getDtActividadDeportiva(a));
 	}
 
 	DtActividadDeportiva actividadActiva = null;
 	String ranking = request.getParameter("ranking");
 	if(ranking != null){
-		dtActividades = icon.rankingActividadesDeportivas();
+		dtActividades = rankingActividadesDeportivas();
 	}
 	%>
 	

@@ -1,9 +1,9 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="interfaces.IControladorActividadDeportiva"%>
-<%@page import="interfaces.IControladorUsuario"%>
-<%@page import="interfaces.Fabrica"%>
-<%@page import="datatypes.DtUsuario" %>
-<%@page import="datatypes.DtProfesor" %>
+<%@page import="publicadores.ControladorClasePublish" %>
+<%@page import="publicadores.ControladorClasePublishServiceLocator" %>
+<%@page import="publicadores.ControladorClasePublishService" %>
+<%@page import="publicadores.DtUsuario" %>
+<%@page import="publicadores.DtProfesor" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,16 +22,16 @@
 <body onload="mostrarNotificacionError();">
 
 <%
-	Fabrica fabrica = Fabrica.getInstancia();
-	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
-	IControladorUsuario iconU = fabrica.getIControladorUsuario();
+	ControladorClasePublishService ccps = new ControladorClasePublishServiceLocator();
+	ControladorClasePublish port = ccps.getControladorClasePublishPort();
+	
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<String> actividades = new ArrayList<String>();
 	if(nickname != null){
-		DtUsuario dtu = iconU.consultaUsuario(nickname);
+		DtUsuario dtu = consultaUsuario(nickname);
 		if(dtu instanceof DtProfesor){
-			actividades = icon.listarActividadesDeportivas(((DtProfesor)dtu).getInstitucion().getNombre());
+			actividades = listarActividadesDeportivas(((DtProfesor)dtu).getInstitucion().getNombre());
 		}
 	}
 	

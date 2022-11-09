@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import datatypes.DtProfesor;
-import datatypes.DtSocio;
-import datatypes.DtUsuario;
-import excepciones.NoExistenUsuariosEx;
+import publicadores.DtProfesor;
+import publicadores.DtSocio;
+import publicadores.DtUsuario;
 
 import publicadores.ControladorUsuarioPublish;
 import publicadores.ControladorUsuarioPublishService;
@@ -64,7 +63,7 @@ public class IniciarSesion extends HttpServlet {
 			
 			sesion.setAttribute("mensaje", "Iniciada la sesion correctamente con el usuario " + nickname);
 			
-		}catch(NoExistenUsuariosEx e) {
+		}catch(Exception e) {
 			
 			sesion.setAttribute("mensajeError", e.getMessage());
 			response.sendRedirect(request.getContextPath() + "/IniciarSesion.jsp");

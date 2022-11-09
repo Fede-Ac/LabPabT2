@@ -1,16 +1,9 @@
-
-<%@page import="interfaces.IControladorUsuario"%>
-<%@page import="datatypes.DtSocio"%>
-<%@page import="datatypes.DtUsuario"%>
-<%@page import="datatypes.DtClase"%>
+<%@page import="publicadores.DtSocio"%>
+<%@page import="publicadores.DtUsuario"%>
+<%@page import="publicadores.DtClase"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="interfaces.IControladorClase"%>
-
-<%@page import="datatypes.DtProfesor"%>
-<%@page import="datatypes.DtUsuario"%>
-<%@page import="interfaces.IControladorUsuario"%>
-
-<%@page import="interfaces.Fabrica"%>
+<%@page import="publicadores.DtProfesor"%>
+<%@page import="publicadores.DtUsuario"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,14 +23,10 @@
 
 <%
 	HttpSession sesion = request.getSession();
-	Fabrica fabrica = Fabrica.getInstancia();
-	IControladorClase iconC = fabrica.getIControladorClase();
-	IControladorUsuario iconU = fabrica.getIControladorUsuario();
-	
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
 	if(nickname != null){
-		DtUsuario dtu = iconU.consultaUsuario(nickname);
+		DtUsuario dtu = consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){
 			clasesRegistradas = ((DtSocio)dtu).getClases();
 		}
@@ -45,7 +34,7 @@
 %>
 
 <%
-	DtUsuario dtu = iconU.consultaUsuario(nickname);
+	DtUsuario dtu = consultaUsuario(nickname);
 	String dia = String.format("%02d", dtu.getFecha().getDia());
 	String mes = String.format("%02d", dtu.getFecha().getMes());
 %>

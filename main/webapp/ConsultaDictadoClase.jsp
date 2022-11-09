@@ -1,15 +1,11 @@
-<%@page import="datatypes.DtFecha"%>
-<%@page import="datatypes.DtFechaHora"%>
-<%@page import="datatypes.DtClase"%>
-<%@page import="datatypes.DtActividadDeportiva"%>
-<%@page import="datatypes.DtUsuario"%>
-<%@page import="datatypes.DtSocio"%>
+<%@page import="publicadores.DtFecha"%>
+<%@page import="publicadores.DtFechaHora"%>
+<%@page import="publicadores.DtClase"%>
+<%@page import="publicadores.DtActividadDeportiva"%>
+<%@page import="publicadores.DtUsuario"%>
+<%@page import="publicadores.DtSocio"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.io.PrintStream"%>
-<%@page import="interfaces.IControladorActividadDeportiva"%>
-<%@page import="interfaces.IControladorClase"%>
-<%@page import="interfaces.IControladorUsuario"%>
-<%@page import="interfaces.Fabrica"%>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -33,17 +29,14 @@
 	<%
 	
 	//Todo esto está más o menos copiado del ConsultaActividadDeportiva
-	Fabrica fabrica = Fabrica.getInstancia();
-	IControladorActividadDeportiva icon = fabrica.getIControladorActividadDeportiva();
-	IControladorClase icC = fabrica.getIControladorClase();
-	IControladorUsuario icU = fabrica.getIControladorUsuario();
-	ArrayList<String> actividades = icon.getActividadesDeportivas();
+	
+	ArrayList<String> actividades = getActividadesDeportivas();
 	ArrayList<String> clases;
 	ArrayList<DtClase> dtClases = new ArrayList<DtClase>();
 	for (String a : actividades) {
-		clases = icC.listarClases(a);
+		clases = listarClases(a);
 		for(String b : clases){
-			dtClases.add(icon.getDtClase(b));
+			dtClases.add(getDtClase(b));
 		}
 	}
 
@@ -81,7 +74,7 @@
                     <div class="row">
                     	<%
                     	//Este for. Se hace para cada clase, digamos
-                    	String[] usuarios = icU.mostrarUsuarios();
+                    	String[] usuarios = mostrarUsuarios();
 						ArrayList<DtUsuario> socios = new ArrayList<DtUsuario>(); 
 						ArrayList<DtSocio> sociosEnClase = new ArrayList<DtSocio>();
 						ArrayList<DtClase> dtC = new ArrayList<DtClase>();	
@@ -89,7 +82,7 @@
 						
                     	String ranking = request.getParameter("ranking");
                     	if(ranking != null){
-                    		dtClases =icC.rankingClases();
+                    		dtClases = rankingClases();
                     	}
                     	
                     	if(!dtClases.isEmpty()){
@@ -109,7 +102,7 @@
 							
 							//Obtengo los usuarios que son socios
 							for(String j : usuarios){
-								DtUsuario usuario = icU.consultaUsuario(j);
+								DtUsuario usuario = consultaUsuario(j);
 								if(usuario instanceof DtSocio){
 									socios.add(usuario);
 								}

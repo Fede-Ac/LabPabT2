@@ -1,13 +1,8 @@
-<%@page import="datatypes.DtSocio"%>
-<%@page import="interfaces.IControladorUsuario"%>
-<%@page import="datatypes.DtUsuario"%>
-<%@page import="datatypes.DtClase"%>
-<%@page import="datatypes.DtActividadDeportiva"%>
-<%@page import="interfaces.IControladorClase"%>
-<%@page import="interfaces.IControladorActividadDeportiva"%>
+<%@page import="publicadores.DtSocio"%>
+<%@page import="publicadores.DtUsuario"%>
+<%@page import="publicadores.DtClase"%>
+<%@page import="publicadores.DtActividadDeportiva"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="interfaces.IControladorInstitucionDep"%>
-<%@page import="interfaces.Fabrica"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -27,27 +22,22 @@
 
 <%
 	HttpSession sesion = request.getSession();
-	Fabrica fabrica = Fabrica.getInstancia();
-	IControladorInstitucionDep icon = fabrica.getIControladorInstitucionDep();
-	IControladorActividadDeportiva iconAD = fabrica.getIControladorActividadDeportiva();
-	IControladorClase iconC = fabrica.getIControladorClase();
-	IControladorUsuario iconU = fabrica.getIControladorUsuario();
-	ArrayList<String> instituciones = icon.listarInstituciones();
+	ArrayList<String> instituciones = listarInstituciones();
 	String institucion = request.getParameter("institucion");
 	ArrayList<String> actividades = new ArrayList<String>();
 	if(institucion != null){
-		actividades = iconAD.listarActividadesDeportivas(institucion);
+		actividades = listarActividadesDeportivas(institucion);
 	}
 	String actividadDeportiva = request.getParameter("actividad");
 	ArrayList<DtClase> clases = new ArrayList<DtClase>();
 	if(actividadDeportiva != null){
-		DtActividadDeportiva dtActDep = iconAD.ConsultaActividadDeportiva(actividadDeportiva);
+		DtActividadDeportiva dtActDep = ConsultaActividadDeportiva(actividadDeportiva);
 		clases = dtActDep.getClases();
 	}
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
 	if(nickname != null){
-		DtUsuario dtu = iconU.consultaUsuario(nickname);
+		DtUsuario dtu = consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){
 			//dtu como dts se obtiene su lista de clases, y se le resta a la lista total de clases previamente conseguida.
 			clasesRegistradas = ((DtSocio)dtu).getClases();

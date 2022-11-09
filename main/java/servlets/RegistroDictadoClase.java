@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import excepciones.RegistroRepetidoEx;
 import publicadores.ControladorActDepPublish;
 import publicadores.ControladorActDepPublishService;
 import publicadores.ControladorActDepPublishServiceLocator;
@@ -49,7 +48,7 @@ public class RegistroDictadoClase extends HttpServlet {
 		try {
 			altaRegistroDictadoDeClase(socio, clase);
 			sesion.setAttribute("mensaje", "Registrado a " + clase + " exitosamente.");
-		} catch (RegistroRepetidoEx e) {
+		} catch (Exception e) {
 			throw new ServletException(e.getMessage());
 		}
 		
