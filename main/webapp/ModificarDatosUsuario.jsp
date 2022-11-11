@@ -4,6 +4,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="publicadores.DtProfesor"%>
 <%@page import="publicadores.DtUsuario"%>
+<%@page import="publicadores.ControladorUsuarioPublish" %>
+<%@page import="publicadores.ControladorUsuarioPublishServiceLocator" %>
+<%@page import="publicadores.ControladorUsuarioPublishService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,11 +25,15 @@
 <body onload="mostrarNotificacion();">
 
 <%
+	ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+	ControladorUsuarioPublish portU = cups.getControladorUsuarioPublishPort();
+
+
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
 	if(nickname != null){
-		DtUsuario dtu = consultaUsuario(nickname);
+		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){
 			clasesRegistradas = ((DtSocio)dtu).getClases();
 		}
@@ -34,7 +41,7 @@
 %>
 
 <%
-	DtUsuario dtu = consultaUsuario(nickname);
+	DtUsuario dtu = portU.consultaUsuario(nickname);
 	String dia = String.format("%02d", dtu.getFecha().getDia());
 	String mes = String.format("%02d", dtu.getFecha().getMes());
 %>

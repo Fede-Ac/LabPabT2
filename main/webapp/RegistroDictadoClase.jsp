@@ -3,6 +3,18 @@
 <%@page import="publicadores.DtClase"%>
 <%@page import="publicadores.DtActividadDeportiva"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="publicadores.ControladorClasePublish" %>
+<%@page import="publicadores.ControladorClasePublishServiceLocator" %>
+<%@page import="publicadores.ControladorClasePublishService" %>
+<%@page import="publicadores.ControladorUsuarioPublish" %>
+<%@page import="publicadores.ControladorUsuarioPublishServiceLocator" %>
+<%@page import="publicadores.ControladorUsuarioPublishService" %>
+<%@page import="publicadores.ControladorActDepPublish" %>
+<%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
+<%@page import="publicadores.ControladorActDepPublishService" %>
+<%@page import="publicadores.ControladorInstPublish" %>
+<%@page import="publicadores.ControladorInstPublishServiceLocator" %>
+<%@page import="publicadores.ControladorInstPublishService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,23 +33,36 @@
 <body onload="mostrarNotificacion();">
 
 <%
+
+	ControladorClasePublishService ccps = new ControladorClasePublishServiceLocator();
+	ControladorClasePublish portC = ccps.getControladorClasePublishPort();
+	
+	ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+	ControladorUsuarioPublish portU = cups.getControladorUsuarioPublishPort();
+	
+	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
+	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
+
+	ControladorInstPublishService cips = new ControladorInstPublishServiceLocator();
+	ControladorInstPublish portI = cips.getControladorInstPublishPort();
+
 	HttpSession sesion = request.getSession();
-	ArrayList<String> instituciones = listarInstituciones();
+	ArrayList<String> instituciones = portI.listarInstituciones();
 	String institucion = request.getParameter("institucion");
 	ArrayList<String> actividades = new ArrayList<String>();
 	if(institucion != null){
-		actividades = listarActividadesDeportivas(institucion);
+		actividades = portAD.listarActividadesDeportivas(institucion);
 	}
 	String actividadDeportiva = request.getParameter("actividad");
 	ArrayList<DtClase> clases = new ArrayList<DtClase>();
 	if(actividadDeportiva != null){
-		DtActividadDeportiva dtActDep = ConsultaActividadDeportiva(actividadDeportiva);
+		DtActividadDeportiva dtActDep = port.ADConsultaActividadDeportiva(actividadDeportiva);
 		clases = dtActDep.getClases();
 	}
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
 	if(nickname != null){
-		DtUsuario dtu = consultaUsuario(nickname);
+		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){
 			//dtu como dts se obtiene su lista de clases, y se le resta a la lista total de clases previamente conseguida.
 			clasesRegistradas = ((DtSocio)dtu).getClases();

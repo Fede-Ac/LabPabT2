@@ -2,8 +2,14 @@
 <%@page import="publicadores.ControladorClasePublish" %>
 <%@page import="publicadores.ControladorClasePublishServiceLocator" %>
 <%@page import="publicadores.ControladorClasePublishService" %>
+<%@page import="publicadores.ControladorUsuarioPublish" %>
+<%@page import="publicadores.ControladorUsuarioPublishServiceLocator" %>
+<%@page import="publicadores.ControladorUsuarioPublishService" %>
+<%@page import="publicadores.ControladorActDepPublish" %>
+<%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
+<%@page import="publicadores.ControladorActDepPublishService" %>
 <%@page import="publicadores.DtUsuario" %>
-<%@page import="publicadores.DtProfesor" %>
+<!--<%@page import="publicadores.DtProfesor" %>-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,15 +29,22 @@
 
 <%
 	ControladorClasePublishService ccps = new ControladorClasePublishServiceLocator();
-	ControladorClasePublish port = ccps.getControladorClasePublishPort();
+	ControladorClasePublish portC = ccps.getControladorClasePublishPort();
+	
+	ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+	ControladorUsuarioPublish portU = cups.getControladorUsuarioPublishPort();
+
+	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
+	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
+	
 	
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
 	ArrayList<String> actividades = new ArrayList<String>();
 	if(nickname != null){
-		DtUsuario dtu = consultaUsuario(nickname);
+		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtProfesor){
-			actividades = listarActividadesDeportivas(((DtProfesor)dtu).getInstitucion().getNombre());
+			actividades = portAD.listarActividadesDeportivas(((DtProfesor)dtu).getInstitucion().getNombre());
 		}
 	}
 	

@@ -2,6 +2,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="publicadores.DtActividadDeportiva"%>
 <%@page import="publicadores.DtClase"%>
+<%@page import="publicadores.ControladorActDepPublish" %>
+<%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
+<%@page import="publicadores.ControladorActDepPublishService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,15 +24,20 @@
 <body>
 
 	<%
-	ArrayList<String> actividades = getActividadesDeportivas();
+	
+	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
+	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
+	
+	ArrayList<String> actividades = portAD.getActividadesDeportivas();
 	ArrayList<DtActividadDeportiva> dtActividades = new ArrayList<DtActividadDeportiva>();
 	for (String a : actividades) {
-		dtActividades.add(getDtActividadDeportiva(a));
+		dtActividades.add(portAD.getDtActividadDeportiva(a));
 	}
 
 	DtActividadDeportiva actividadActiva = null;
 	String ranking = request.getParameter("ranking");
 	if(ranking != null){
+		//Acá Enzo: No sé de dónde se saca rankingActividadesDeportivas, por eso no le puse el port
 		dtActividades = rankingActividadesDeportivas();
 	}
 	%>

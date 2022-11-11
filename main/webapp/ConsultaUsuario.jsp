@@ -4,6 +4,12 @@
 <%@page import="publicadores.DtProfesor"%>
 <%@page import="publicadores.DtSocio"%>
 <%@page import="publicadores.DtUsuario"%>
+<%@page import="publicadores.ControladorUsuarioPublish" %>
+<%@page import="publicadores.ControladorUsuarioPublishServiceLocator" %>
+<%@page import="publicadores.ControladorUsuarioPublishService" %>
+<%@page import="publicadores.ControladorActDepPublish" %>
+<%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
+<%@page import="publicadores.ControladorActDepPublishService" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,8 +27,15 @@
 
 <body>
 <%
+	ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+	ControladorUsuarioPublish portU = cups.getControladorUsuarioPublishPort();
+	
+	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
+	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
+
+	
 	String nickname = (String)sesion2.getAttribute("nombreUsuario");
-	DtUsuario dtu = consultaUsuario(nickname);
+	DtUsuario dtu = portU.consultaUsuario(nickname);
 	String urlimagen = dtu.getpfp();
 	
 	
@@ -249,14 +262,14 @@
                     <hr class="dashed col" style="margin-top: 23px;">
                 </div> <br> <br>
                 <%
-                ArrayList<String> actividades = getActividadesDeportivas();
+                ArrayList<String> actividades = portAD.getActividadesDeportivas();
                 ArrayList<DtActividadDeportiva> actividadesUsuario = new ArrayList<DtActividadDeportiva>();
                 boolean encontro;
                 for(String a : actividades){ 
                 	encontro = false;
                 	for(DtClase c : clases){
                 		if(a.equals(c.getActDep()) && !encontro){
-                    		actividadesUsuario.add(ConsultaActividadDeportiva(a));
+                    		actividadesUsuario.add(portAD.ConsultaActividadDeportiva(a));
                     		encontro = true;
                     	}
                 	}

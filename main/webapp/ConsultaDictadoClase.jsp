@@ -6,6 +6,12 @@
 <%@page import="publicadores.DtSocio"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.io.PrintStream"%>
+<%@page import="publicadores.ControladorActDepPublish" %>
+<%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
+<%@page import="publicadores.ControladorActDepPublishService" %>
+<%@page import="publicadores.ControladorClasePublish" %>
+<%@page import="publicadores.ControladorClasePublishServiceLocator" %>
+<%@page import="publicadores.ControladorClasePublishService" %>
 
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -28,13 +34,18 @@
 
 	<%
 	
+	ControladorClasePublishService ccps = new ControladorClasePublishServiceLocator();
+	ControladorClasePublish portC = ccps.getControladorClasePublishPort();
+	
+	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
+	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	//Todo esto está más o menos copiado del ConsultaActividadDeportiva
 	
-	ArrayList<String> actividades = getActividadesDeportivas();
+	ArrayList<String> actividades = portAD.getActividadesDeportivas();
 	ArrayList<String> clases;
 	ArrayList<DtClase> dtClases = new ArrayList<DtClase>();
 	for (String a : actividades) {
-		clases = listarClases(a);
+		clases = portC.listarClases(a);
 		for(String b : clases){
 			dtClases.add(getDtClase(b));
 		}
