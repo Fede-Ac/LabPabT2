@@ -47,16 +47,16 @@
 	ControladorInstPublish portI = cips.getControladorInstPublishPort();
 
 	HttpSession sesion = request.getSession();
-	ArrayList<String> instituciones = portI.listarInstituciones();
+	String[] instituciones = portI.listarInstituciones();
 	String institucion = request.getParameter("institucion");
-	ArrayList<String> actividades = new ArrayList<String>();
+	String[] actividades;
 	if(institucion != null){
 		actividades = portAD.listarActividadesDeportivas(institucion);
 	}
 	String actividadDeportiva = request.getParameter("actividad");
-	ArrayList<DtClase> clases = new ArrayList<DtClase>();
+	DtClase[] clases;
 	if(actividadDeportiva != null){
-		DtActividadDeportiva dtActDep = port.ADConsultaActividadDeportiva(actividadDeportiva);
+		DtActividadDeportiva dtActDep = portAD.consultaActividadDeportiva(actividadDeportiva);
 		clases = dtActDep.getClases();
 	}
 	String nickname = (String)sesion.getAttribute("nombreUsuario");

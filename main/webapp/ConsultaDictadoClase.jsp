@@ -9,6 +9,9 @@
 <%@page import="publicadores.ControladorActDepPublish" %>
 <%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
 <%@page import="publicadores.ControladorActDepPublishService" %>
+<%@page import="publicadores.ControladorUsuarioPublish" %>
+<%@page import="publicadores.ControladorUsuarioPublishServiceLocator" %>
+<%@page import="publicadores.ControladorUsuarioPublishService" %>
 <%@page import="publicadores.ControladorClasePublish" %>
 <%@page import="publicadores.ControladorClasePublishServiceLocator" %>
 <%@page import="publicadores.ControladorClasePublishService" %>
@@ -37,13 +40,16 @@
 	ControladorClasePublishService ccps = new ControladorClasePublishServiceLocator();
 	ControladorClasePublish portC = ccps.getControladorClasePublishPort();
 	
+	ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
+	ControladorUsuarioPublish portU = cups.getControladorUsuarioPublishPort();
+	
 	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
 	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	//Todo esto está más o menos copiado del ConsultaActividadDeportiva
 	
-	ArrayList<String> actividades = portAD.getActividadesDeportivas();
-	ArrayList<String> clases;
-	ArrayList<DtClase> dtClases = new ArrayList<DtClase>();
+	String[] actividades = portAD.getActividadesDeportivas();
+	String[] clases;
+	DtClase[] dtClases;
 	for (String a : actividades) {
 		clases = portC.listarClases(a);
 		for(String b : clases){
@@ -85,7 +91,7 @@
                     <div class="row">
                     	<%
                     	//Este for. Se hace para cada clase, digamos
-                    	String[] usuarios = mostrarUsuarios();
+                    	String[] usuarios = portU.mostrarUsuarios();
 						ArrayList<DtUsuario> socios = new ArrayList<DtUsuario>(); 
 						ArrayList<DtSocio> sociosEnClase = new ArrayList<DtSocio>();
 						ArrayList<DtClase> dtC = new ArrayList<DtClase>();	
@@ -93,10 +99,10 @@
 						
                     	String ranking = request.getParameter("ranking");
                     	if(ranking != null){
-                    		dtClases = rankingClases();
+                    		dtClases = portC.rankingClases();
                     	}
                     	
-                    	if(!dtClases.isEmpty()){
+                    	if(dtClases!=null){
                     	
 						for (DtClase a : dtClases) {
 							socios = new ArrayList<DtUsuario>(); 
@@ -113,7 +119,7 @@
 							
 							//Obtengo los usuarios que son socios
 							for(String j : usuarios){
-								DtUsuario usuario = consultaUsuario(j);
+								DtUsuario usuario = portU.consultaUsuario(j);
 								if(usuario instanceof DtSocio){
 									socios.add(usuario);
 								}

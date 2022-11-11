@@ -262,14 +262,14 @@
                     <hr class="dashed col" style="margin-top: 23px;">
                 </div> <br> <br>
                 <%
-                ArrayList<String> actividades = portAD.getActividadesDeportivas();
+                String[] actividades = portAD.getActividadesDeportivas();
                 ArrayList<DtActividadDeportiva> actividadesUsuario = new ArrayList<DtActividadDeportiva>();
                 boolean encontro;
                 for(String a : actividades){ 
                 	encontro = false;
                 	for(DtClase c : clases){
                 		if(a.equals(c.getActDep()) && !encontro){
-                    		actividadesUsuario.add(portAD.ConsultaActividadDeportiva(a));
+                    		actividadesUsuario.add(portAD.consultaActividadDeportiva(a));
                     		encontro = true;
                     	}
                 	}
