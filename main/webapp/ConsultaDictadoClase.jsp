@@ -94,7 +94,7 @@
                     	String[] usuarios = portU.mostrarUsuarios();
 						ArrayList<DtUsuario> socios = new ArrayList<DtUsuario>(); 
 						ArrayList<DtSocio> sociosEnClase = new ArrayList<DtSocio>();
-						ArrayList<DtClase> dtC = new ArrayList<DtClase>();	
+						DtClase[] dtC;	
                     	int cont = 0;
 						
                     	String ranking = request.getParameter("ranking");
@@ -107,7 +107,7 @@
 						for (DtClase a : dtClases) {
 							socios = new ArrayList<DtUsuario>(); 
 							sociosEnClase = new ArrayList<DtSocio>();
-							dtC = new ArrayList<DtClase>();	
+							
 							String nombre = a.getNombre();
 							String url = a.getUrl();
 							DtFechaHora inicio = a.getFechaInicio();

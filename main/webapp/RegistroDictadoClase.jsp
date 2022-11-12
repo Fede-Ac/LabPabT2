@@ -49,18 +49,18 @@
 	HttpSession sesion = request.getSession();
 	String[] instituciones = portI.listarInstituciones();
 	String institucion = request.getParameter("institucion");
-	String[] actividades;
+	String[] actividades = null;
 	if(institucion != null){
 		actividades = portAD.listarActividadesDeportivas(institucion);
 	}
 	String actividadDeportiva = request.getParameter("actividad");
-	DtClase[] clases;
+	DtClase[] clases = null;
 	if(actividadDeportiva != null){
 		DtActividadDeportiva dtActDep = portAD.consultaActividadDeportiva(actividadDeportiva);
 		clases = dtActDep.getClases();
 	}
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
-	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
+	DtClase[] clasesRegistradas = null;
 	if(nickname != null){
 		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){

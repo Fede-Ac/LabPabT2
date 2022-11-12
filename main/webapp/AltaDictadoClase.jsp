@@ -9,7 +9,7 @@
 <%@page import="publicadores.ControladorActDepPublishServiceLocator" %>
 <%@page import="publicadores.ControladorActDepPublishService" %>
 <%@page import="publicadores.DtUsuario" %>
-<!--<%@page import="publicadores.DtProfesor" %>-->
+<%@page import="publicadores.DtProfesor" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -37,10 +37,9 @@
 	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
 	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	
-	
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
-	ArrayList<String> actividades = new ArrayList<String>();
+	String[] actividades = null;
 	if(nickname != null){
 		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtProfesor){

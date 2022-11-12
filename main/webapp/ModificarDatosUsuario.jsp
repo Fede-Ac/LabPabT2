@@ -31,7 +31,7 @@
 
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
-	ArrayList<DtClase> clasesRegistradas = new ArrayList<DtClase>();
+	DtClase[] clasesRegistradas;
 	if(nickname != null){
 		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){

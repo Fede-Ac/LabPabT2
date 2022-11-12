@@ -28,7 +28,7 @@
 	ControladorActDepPublishService cadps = new ControladorActDepPublishServiceLocator();
 	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	
-	ArrayList<String> actividades = portAD.getActividadesDeportivas();
+	String[] actividades = portAD.getActividadesDeportivas();
 	ArrayList<DtActividadDeportiva> dtActividades = new ArrayList<DtActividadDeportiva>();
 	for (String a : actividades) {
 		dtActividades.add(portAD.getDtActividadDeportiva(a));

@@ -287,33 +287,80 @@ java.lang.String typenombre46 = existeUsuario13mtemp.getNombre();
 break;
 case 52:
         gotMethod = true;
-        java.lang.String[] mostrarUsuarios52mtemp = sampleControladorUsuarioPublishProxyid.mostrarUsuarios();
-if(mostrarUsuarios52mtemp == null){
-%>
-<%=mostrarUsuarios52mtemp %>
-<%
-}else{
-        String tempreturnp53 = null;
-        if(mostrarUsuarios52mtemp != null){
-        java.util.List listreturnp53= java.util.Arrays.asList(mostrarUsuarios52mtemp);
-        tempreturnp53 = listreturnp53.toString();
+        String descripcion_5id=  request.getParameter("descripcion59");
+            java.lang.String descripcion_5idTemp = null;
+        if(!descripcion_5id.equals("")){
+         descripcion_5idTemp  = descripcion_5id;
+        }
+        String url_6id=  request.getParameter("url61");
+            java.lang.String url_6idTemp = null;
+        if(!url_6id.equals("")){
+         url_6idTemp  = url_6id;
+        }
+        String nombre_7id=  request.getParameter("nombre63");
+            java.lang.String nombre_7idTemp = null;
+        if(!nombre_7id.equals("")){
+         nombre_7idTemp  = nombre_7id;
         }
         %>
-        <%=tempreturnp53%>
+        <jsp:useBean id="publicadores1DtInstitucionDeportiva_4id" scope="session" class="publicadores.DtInstitucionDeportiva" />
+        <%
+        publicadores1DtInstitucionDeportiva_4id.setDescripcion(descripcion_5idTemp);
+        publicadores1DtInstitucionDeportiva_4id.setUrl(url_6idTemp);
+        publicadores1DtInstitucionDeportiva_4id.setNombre(nombre_7idTemp);
+        String descripcion_8id=  request.getParameter("descripcion65");
+            java.lang.String descripcion_8idTemp = null;
+        if(!descripcion_8id.equals("")){
+         descripcion_8idTemp  = descripcion_8id;
+        }
+        String sitioWeb_9id=  request.getParameter("sitioWeb67");
+            java.lang.String sitioWeb_9idTemp = null;
+        if(!sitioWeb_9id.equals("")){
+         sitioWeb_9idTemp  = sitioWeb_9id;
+        }
+        String biografia_10id=  request.getParameter("biografia69");
+            java.lang.String biografia_10idTemp = null;
+        if(!biografia_10id.equals("")){
+         biografia_10idTemp  = biografia_10id;
+        }
+        %>
+        <jsp:useBean id="publicadores1DtProfesor_3id" scope="session" class="publicadores.DtProfesor" />
+        <%
+        publicadores1DtProfesor_3id.setInstitucion(publicadores1DtInstitucionDeportiva_4id);
+        publicadores1DtProfesor_3id.setDescripcion(descripcion_8idTemp);
+        publicadores1DtProfesor_3id.setSitioWeb(sitioWeb_9idTemp);
+        publicadores1DtProfesor_3id.setBiografia(biografia_10idTemp);
+        sampleControladorUsuarioPublishProxyid.altaUsuarioProfesor(publicadores1DtProfesor_3id);
+break;
+case 71:
+        gotMethod = true;
+        java.lang.String[] mostrarUsuarios71mtemp = sampleControladorUsuarioPublishProxyid.mostrarUsuarios();
+if(mostrarUsuarios71mtemp == null){
+%>
+<%=mostrarUsuarios71mtemp %>
+<%
+}else{
+        String tempreturnp72 = null;
+        if(mostrarUsuarios71mtemp != null){
+        java.util.List listreturnp72= java.util.Arrays.asList(mostrarUsuarios71mtemp);
+        tempreturnp72 = listreturnp72.toString();
+        }
+        %>
+        <%=tempreturnp72%>
         <%
 }
 break;
-case 55:
+case 74:
         gotMethod = true;
-        String arg0_3id=  request.getParameter("arg090");
-            java.lang.String arg0_3idTemp = null;
-        if(!arg0_3id.equals("")){
-         arg0_3idTemp  = arg0_3id;
+        String arg0_11id=  request.getParameter("arg0109");
+            java.lang.String arg0_11idTemp = null;
+        if(!arg0_11id.equals("")){
+         arg0_11idTemp  = arg0_11id;
         }
-        publicadores.DtUsuario consultaUsuario55mtemp = sampleControladorUsuarioPublishProxyid.consultaUsuario(arg0_3idTemp);
-if(consultaUsuario55mtemp == null){
+        publicadores.DtUsuario consultaUsuario74mtemp = sampleControladorUsuarioPublishProxyid.consultaUsuario(arg0_11idTemp);
+if(consultaUsuario74mtemp == null){
 %>
-<%=consultaUsuario55mtemp %>
+<%=consultaUsuario74mtemp %>
 <%
 }else{
 %>
@@ -329,8 +376,8 @@ if(consultaUsuario55mtemp == null){
 <TD COLSPAN="1" ALIGN="LEFT">anio:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getAnio()
@@ -342,8 +389,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINDIA:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINDIA()
@@ -355,8 +402,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXDIA:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXDIA()
@@ -368,8 +415,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXANIO:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXANIO()
@@ -381,8 +428,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mes:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMes()
@@ -394,8 +441,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINMES:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINMES()
@@ -407,8 +454,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXMES:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXMES()
@@ -420,8 +467,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">dia:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getDia()
@@ -433,8 +480,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINANIO:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-publicadores.DtFecha tebece0=consultaUsuario55mtemp.getFechaNac();
+if(consultaUsuario74mtemp != null){
+publicadores.DtFecha tebece0=consultaUsuario74mtemp.getFechaNac();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINANIO()
@@ -445,11 +492,11 @@ if(tebece0 != null){
 <TD COLSPAN="2" ALIGN="LEFT">nickname:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typenickname78 = consultaUsuario55mtemp.getNickname();
-        String tempResultnickname78 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenickname78));
+if(consultaUsuario74mtemp != null){
+java.lang.String typenickname97 = consultaUsuario74mtemp.getNickname();
+        String tempResultnickname97 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenickname97));
         %>
-        <%= tempResultnickname78 %>
+        <%= tempResultnickname97 %>
         <%
 }%>
 </TD>
@@ -458,11 +505,11 @@ java.lang.String typenickname78 = consultaUsuario55mtemp.getNickname();
 <TD COLSPAN="2" ALIGN="LEFT">email:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typeemail80 = consultaUsuario55mtemp.getEmail();
-        String tempResultemail80 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeemail80));
+if(consultaUsuario74mtemp != null){
+java.lang.String typeemail99 = consultaUsuario74mtemp.getEmail();
+        String tempResultemail99 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeemail99));
         %>
-        <%= tempResultemail80 %>
+        <%= tempResultemail99 %>
         <%
 }%>
 </TD>
@@ -471,11 +518,11 @@ java.lang.String typeemail80 = consultaUsuario55mtemp.getEmail();
 <TD COLSPAN="2" ALIGN="LEFT">contrasenia:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typecontrasenia82 = consultaUsuario55mtemp.getContrasenia();
-        String tempResultcontrasenia82 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typecontrasenia82));
+if(consultaUsuario74mtemp != null){
+java.lang.String typecontrasenia101 = consultaUsuario74mtemp.getContrasenia();
+        String tempResultcontrasenia101 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typecontrasenia101));
         %>
-        <%= tempResultcontrasenia82 %>
+        <%= tempResultcontrasenia101 %>
         <%
 }%>
 </TD>
@@ -484,11 +531,11 @@ java.lang.String typecontrasenia82 = consultaUsuario55mtemp.getContrasenia();
 <TD COLSPAN="2" ALIGN="LEFT">pfp:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typepfp84 = consultaUsuario55mtemp.getPfp();
-        String tempResultpfp84 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepfp84));
+if(consultaUsuario74mtemp != null){
+java.lang.String typepfp103 = consultaUsuario74mtemp.getPfp();
+        String tempResultpfp103 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepfp103));
         %>
-        <%= tempResultpfp84 %>
+        <%= tempResultpfp103 %>
         <%
 }%>
 </TD>
@@ -497,11 +544,11 @@ java.lang.String typepfp84 = consultaUsuario55mtemp.getPfp();
 <TD COLSPAN="2" ALIGN="LEFT">apellido:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typeapellido86 = consultaUsuario55mtemp.getApellido();
-        String tempResultapellido86 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeapellido86));
+if(consultaUsuario74mtemp != null){
+java.lang.String typeapellido105 = consultaUsuario74mtemp.getApellido();
+        String tempResultapellido105 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeapellido105));
         %>
-        <%= tempResultapellido86 %>
+        <%= tempResultapellido105 %>
         <%
 }%>
 </TD>
@@ -510,11 +557,11 @@ java.lang.String typeapellido86 = consultaUsuario55mtemp.getApellido();
 <TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
 <TD>
 <%
-if(consultaUsuario55mtemp != null){
-java.lang.String typenombre88 = consultaUsuario55mtemp.getNombre();
-        String tempResultnombre88 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre88));
+if(consultaUsuario74mtemp != null){
+java.lang.String typenombre107 = consultaUsuario74mtemp.getNombre();
+        String tempResultnombre107 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre107));
         %>
-        <%= tempResultnombre88 %>
+        <%= tempResultnombre107 %>
         <%
 }%>
 </TD>
@@ -522,17 +569,17 @@ java.lang.String typenombre88 = consultaUsuario55mtemp.getNombre();
 <%
 }
 break;
-case 92:
+case 111:
         gotMethod = true;
-        String arg0_4id=  request.getParameter("arg0101");
-            java.lang.String arg0_4idTemp = null;
-        if(!arg0_4id.equals("")){
-         arg0_4idTemp  = arg0_4id;
+        String arg0_12id=  request.getParameter("arg0120");
+            java.lang.String arg0_12idTemp = null;
+        if(!arg0_12id.equals("")){
+         arg0_12idTemp  = arg0_12id;
         }
-        publicadores.DtInstitucionDeportiva getDtinstitucionDeportiva92mtemp = sampleControladorUsuarioPublishProxyid.getDtinstitucionDeportiva(arg0_4idTemp);
-if(getDtinstitucionDeportiva92mtemp == null){
+        publicadores.DtInstitucionDeportiva getDtinstitucionDeportiva111mtemp = sampleControladorUsuarioPublishProxyid.getDtinstitucionDeportiva(arg0_12idTemp);
+if(getDtinstitucionDeportiva111mtemp == null){
 %>
-<%=getDtinstitucionDeportiva92mtemp %>
+<%=getDtinstitucionDeportiva111mtemp %>
 <%
 }else{
 %>
@@ -544,11 +591,11 @@ if(getDtinstitucionDeportiva92mtemp == null){
 <TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
 <TD>
 <%
-if(getDtinstitucionDeportiva92mtemp != null){
-java.lang.String typedescripcion95 = getDtinstitucionDeportiva92mtemp.getDescripcion();
-        String tempResultdescripcion95 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion95));
+if(getDtinstitucionDeportiva111mtemp != null){
+java.lang.String typedescripcion114 = getDtinstitucionDeportiva111mtemp.getDescripcion();
+        String tempResultdescripcion114 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion114));
         %>
-        <%= tempResultdescripcion95 %>
+        <%= tempResultdescripcion114 %>
         <%
 }%>
 </TD>
@@ -557,11 +604,11 @@ java.lang.String typedescripcion95 = getDtinstitucionDeportiva92mtemp.getDescrip
 <TD COLSPAN="2" ALIGN="LEFT">url:</TD>
 <TD>
 <%
-if(getDtinstitucionDeportiva92mtemp != null){
-java.lang.String typeurl97 = getDtinstitucionDeportiva92mtemp.getUrl();
-        String tempResulturl97 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl97));
+if(getDtinstitucionDeportiva111mtemp != null){
+java.lang.String typeurl116 = getDtinstitucionDeportiva111mtemp.getUrl();
+        String tempResulturl116 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typeurl116));
         %>
-        <%= tempResulturl97 %>
+        <%= tempResulturl116 %>
         <%
 }%>
 </TD>
@@ -570,11 +617,11 @@ java.lang.String typeurl97 = getDtinstitucionDeportiva92mtemp.getUrl();
 <TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
 <TD>
 <%
-if(getDtinstitucionDeportiva92mtemp != null){
-java.lang.String typenombre99 = getDtinstitucionDeportiva92mtemp.getNombre();
-        String tempResultnombre99 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre99));
+if(getDtinstitucionDeportiva111mtemp != null){
+java.lang.String typenombre118 = getDtinstitucionDeportiva111mtemp.getNombre();
+        String tempResultnombre118 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre118));
         %>
-        <%= tempResultnombre99 %>
+        <%= tempResultnombre118 %>
         <%
 }%>
 </TD>
@@ -582,33 +629,40 @@ java.lang.String typenombre99 = getDtinstitucionDeportiva92mtemp.getNombre();
 <%
 }
 break;
-case 103:
+case 122:
         gotMethod = true;
-        publicadores.DtUsuario publicadores1DtUsuario_5id = null;
-        sampleControladorUsuarioPublishProxyid.altaUsuario(publicadores1DtUsuario_5id);
+        publicadores.DtUsuario publicadores1DtUsuario_13id = null;
+        sampleControladorUsuarioPublishProxyid.altaUsuario(publicadores1DtUsuario_13id);
 break;
-case 108:
+case 127:
         gotMethod = true;
-        java.lang.String[] listarInstituciones108mtemp = sampleControladorUsuarioPublishProxyid.listarInstituciones();
-if(listarInstituciones108mtemp == null){
+        java.lang.String[] listarInstituciones127mtemp = sampleControladorUsuarioPublishProxyid.listarInstituciones();
+if(listarInstituciones127mtemp == null){
 %>
-<%=listarInstituciones108mtemp %>
+<%=listarInstituciones127mtemp %>
 <%
 }else{
-        String tempreturnp109 = null;
-        if(listarInstituciones108mtemp != null){
-        java.util.List listreturnp109= java.util.Arrays.asList(listarInstituciones108mtemp);
-        tempreturnp109 = listreturnp109.toString();
+        String tempreturnp128 = null;
+        if(listarInstituciones127mtemp != null){
+        java.util.List listreturnp128= java.util.Arrays.asList(listarInstituciones127mtemp);
+        tempreturnp128 = listreturnp128.toString();
         }
         %>
-        <%=tempreturnp109%>
+        <%=tempreturnp128%>
         <%
 }
 break;
-case 111:
+case 130:
         gotMethod = true;
-        publicadores.DtUsuario publicadores1DtUsuario_6id = null;
-        sampleControladorUsuarioPublishProxyid.modificarUsuario(publicadores1DtUsuario_6id);
+        publicadores.DtUsuario publicadores1DtUsuario_14id = null;
+        sampleControladorUsuarioPublishProxyid.modificarUsuario(publicadores1DtUsuario_14id);
+break;
+case 135:
+        gotMethod = true;
+        %>
+        <jsp:useBean id="publicadores1DtSocio_15id" scope="session" class="publicadores.DtSocio" />
+        <%
+        sampleControladorUsuarioPublishProxyid.altaUsuarioSocio(publicadores1DtSocio_15id);
 break;
 }
 } catch (Exception e) { 

@@ -9,10 +9,12 @@ package publicadores;
 
 public interface ControladorUsuarioPublish extends java.rmi.Remote {
     public publicadores.DtUsuario existeUsuario(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public void altaUsuarioProfesor(publicadores.DtProfesor arg0) throws java.rmi.RemoteException;
     public java.lang.String[] mostrarUsuarios() throws java.rmi.RemoteException;
     public publicadores.DtUsuario consultaUsuario(java.lang.String arg0) throws java.rmi.RemoteException;
     public publicadores.DtInstitucionDeportiva getDtinstitucionDeportiva(java.lang.String arg0) throws java.rmi.RemoteException;
     public void altaUsuario(publicadores.DtUsuario arg0) throws java.rmi.RemoteException;
     public java.lang.String[] listarInstituciones() throws java.rmi.RemoteException;
     public void modificarUsuario(publicadores.DtUsuario arg0) throws java.rmi.RemoteException;
+    public void altaUsuarioSocio(publicadores.DtSocio arg0) throws java.rmi.RemoteException;
 }

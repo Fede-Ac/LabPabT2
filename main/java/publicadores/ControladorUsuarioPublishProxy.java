@@ -50,6 +50,12 @@ public class ControladorUsuarioPublishProxy implements publicadores.ControladorU
     return controladorUsuarioPublish.existeUsuario(arg0, arg1);
   }
   
+  public void altaUsuarioProfesor(publicadores.DtProfesor arg0) throws java.rmi.RemoteException{
+    if (controladorUsuarioPublish == null)
+      _initControladorUsuarioPublishProxy();
+    controladorUsuarioPublish.altaUsuarioProfesor(arg0);
+  }
+  
   public java.lang.String[] mostrarUsuarios() throws java.rmi.RemoteException{
     if (controladorUsuarioPublish == null)
       _initControladorUsuarioPublishProxy();
@@ -84,6 +90,12 @@ public class ControladorUsuarioPublishProxy implements publicadores.ControladorU
     if (controladorUsuarioPublish == null)
       _initControladorUsuarioPublishProxy();
     controladorUsuarioPublish.modificarUsuario(arg0);
+  }
+  
+  public void altaUsuarioSocio(publicadores.DtSocio arg0) throws java.rmi.RemoteException{
+    if (controladorUsuarioPublish == null)
+      _initControladorUsuarioPublishProxy();
+    controladorUsuarioPublish.altaUsuarioSocio(arg0);
   }
   
   

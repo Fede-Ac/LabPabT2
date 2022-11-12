@@ -39,7 +39,7 @@
 	String urlimagen = dtu.getpfp();
 	
 	
-	ArrayList<DtClase> clases = new ArrayList<DtClase>();
+	DtClase[] clases;
 	if(dtu instanceof DtSocio){
 		clases = ((DtSocio)dtu).getClases();
 	}else if(dtu instanceof DtProfesor){

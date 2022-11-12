@@ -1,12 +1,15 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import publicadores.DtUsuario;
 
@@ -61,8 +64,18 @@ public class EliminarRegistroDictadoClase extends HttpServlet {
 	//Operación consumida 
 	public void eliminarRegistro(String socio, String clase) {
 		ControladorActDepPublishService ccps = new ControladorActDepPublishServiceLocator();
-		ControladorActDepPublish port = ccps.getControladorActDepPublishPort();
-		port.eliminarRegistroClase(socio, clase);
+		ControladorActDepPublish port;
+        try {
+            port = ccps.getControladorActDepPublishPort();
+            port.eliminarRegistroClase(socio, clase);
+        } catch (ServiceException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		
 		
 	}
 }

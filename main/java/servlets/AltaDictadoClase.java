@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import publicadores.ControladorClasePublish;
 import publicadores.ControladorClasePublishService;
@@ -97,8 +99,18 @@ public class AltaDictadoClase extends HttpServlet {
 	//Operación consumida 
 	public void addClase(String actDep, String nombre, DtFechaHora fechaInicio, String nomProf, String urlClase, DtFecha fechaReg, String urlImagen) {
 		ControladorClasePublishService ccp = new ControladorClasePublishServiceLocator();
-		ControladorClasePublish port = ccp.getControladorClasePublishPort();
-			port.addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
+		ControladorClasePublish port;
+        try {
+            port = ccp.getControladorClasePublishPort();
+            port.addClase(actDep, nombre, fechaInicio, nomProf, urlClase, fechaReg, urlImagen);
+        } catch (ServiceException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		
 	}
 	
 }

@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import publicadores.ControladorUsuarioPublish;
 import publicadores.ControladorUsuarioPublishService;
@@ -108,13 +110,34 @@ public class ModificarUsuario extends HttpServlet {
 	//Operación consumida
 	public void modificarUsuario(DtUsuario usuario) {
 		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
-		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
-		port.modificarUsuario(usuario);
+		ControladorUsuarioPublish port;
+        try {
+            port = cups.getControladorUsuarioPublishPort();
+            port.modificarUsuario(usuario);
+        } catch (ServiceException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		
 	}
 	
 	public DtUsuario consultaUsuario(String usuario) {
 		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
-		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
-		port.consultaUsuario(usuario);
+		ControladorUsuarioPublish port;
+		DtUsuario dtu = null;
+        try {
+            port = cups.getControladorUsuarioPublishPort();
+            dtu = port.consultaUsuario(usuario);
+        } catch (ServiceException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		return dtu;
 	}
 }

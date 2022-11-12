@@ -1,6 +1,7 @@
 package servlets;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.rpc.ServiceException;
 
 import publicadores.DtProfesor;
 import publicadores.DtSocio;
@@ -82,8 +84,18 @@ public class IniciarSesion extends HttpServlet {
 	//Operación consumida 
 	public DtUsuario existeUsuario(String nickname, String pass) {
 		ControladorUsuarioPublishService cups = new ControladorUsuarioPublishServiceLocator();
-		ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
-			port.existeUsuario(nickname, pass);
+		DtUsuario dtu = null;
+		try {
+		    ControladorUsuarioPublish port = cups.getControladorUsuarioPublishPort();
+            dtu = port.existeUsuario(nickname, pass);
+        } catch (RemoteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (ServiceException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		return dtu;
 	}
 
 }
