@@ -61,17 +61,27 @@ public class AltaDictadoClase extends HttpServlet {
 			e1.printStackTrace();
 		}
 		//max y min para publish
-	    final int MAXANIO = 2030;
-	    final int MINANIO = 1920;
-	    final int MINMES = 1;
-	    final int MAXMES = 12;
-	    final int MINDIA = 1;
-	    final int MAXDIA = 31;
+	    int MAXANIO = 2030;
+	    int MINANIO = 1920;
+	    int MINMES = 1;
+	    int MAXMES = 12;
+	    int MINDIA = 1;
+	    int MAXDIA = 31;
 		
 	    int anio = gc.get(Calendar.YEAR);
 	    int mes = gc.get(Calendar.MONTH);
 	    int dia = gc.get(Calendar.DAY_OF_MONTH);
-		DtFechaHora fechaInicio = new DtFechaHora(MAXANIO, MAXANIO, MINMES, MAXMES, MINDIA, MAXDIA, anio, mes, dia, gc.get(Calendar.HOUR), gc.get(Calendar.MINUTE)); 
+	    
+	    int MAXHORA = 23;
+	    int MINHORA = 0;
+	    int MINMIN = 0;
+	    int MAXMIN = 59;
+	    int MINSEG = 0;
+	    int MAXSEG = 59;
+	    int hour = gc.get(Calendar.HOUR);
+	    int min = gc.get(Calendar.MINUTE);
+	    int seg = 0;
+		DtFechaHora fechaInicio = new DtFechaHora(MAXANIO, MAXANIO, MINMES, MAXMES, MINDIA, MAXDIA, anio, mes, dia, MAXHORA, MINHORA, MINMIN, MAXMIN, MINSEG, MAXSEG, hour, min, seg); 
 		
 		String nombre = request.getParameter("nombre");
 		String urlClase = request.getParameter("urlClase");
@@ -90,7 +100,7 @@ public class AltaDictadoClase extends HttpServlet {
 	    int anio2 = c.get(Calendar.YEAR);
 	    int mes2 = c.get(Calendar.MONTH);
 	    int dia2 = c.get(Calendar.DAY_OF_MONTH);
-		DtFecha fechaReg = new DtFecha(anio, mes, dia);
+		DtFecha fechaReg = new DtFecha(MAXANIO, MAXANIO, MINMES, MAXMES, MINDIA, MAXDIA, anio, mes, dia);
 		
 		
 		try {

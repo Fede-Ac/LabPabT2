@@ -85,10 +85,16 @@ public class ModificarUsuario extends HttpServlet {
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			}
+	        int MAXANIO = 2030;
+	        int MINANIO = 1920;
+	        int MINMES = 1;
+	        int MAXMES = 12;
+	        int MINDIA = 1;
+	        int MAXDIA = 31;
 		    int anio = gc.get(Calendar.YEAR);
 		    int mes = gc.get(Calendar.MONTH);
 		    int dia = gc.get(Calendar.DAY_OF_MONTH);
-			DtFecha fechaNac = new DtFecha(anio, mes, dia);
+			DtFecha fechaNac = new DtFecha(MAXANIO, MAXANIO, MINMES, MAXMES, MINDIA, MAXDIA, anio, mes, dia);
 	        DtUsuario dtu = consultaUsuario(nick);
 
 	        if(dtu instanceof DtProfesor){
