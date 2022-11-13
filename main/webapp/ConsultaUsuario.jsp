@@ -36,10 +36,10 @@
 	
 	String nickname = (String)sesion2.getAttribute("nombreUsuario");
 	DtUsuario dtu = portU.consultaUsuario(nickname);
-	String urlimagen = dtu.getpfp();
+	String urlimagen = dtu.getPfp();
 	
 	
-	DtClase[] clases;
+	DtClase[] clases = null;
 	if(dtu instanceof DtSocio){
 		clases = ((DtSocio)dtu).getClases();
 	}else if(dtu instanceof DtProfesor){
@@ -90,7 +90,7 @@
                         <div>
                             <div style="display:flex; ">
                                 <img src="vector/FechaNac.svg" style="width: 23px;margin-left: 8px;" alt="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Fecha de nacimiento"data-bs-custom-class="custom-tooltip">
-                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0; overflow-wrap: anywhere;"><%=dtu.getFecha() %></p>
+                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0; overflow-wrap: anywhere;"><%=dtu.getFechaNac() %></p>
                             </div>
                             <%if(dtu instanceof DtProfesor){ %>
 	                            <div style="display:flex;">
@@ -135,7 +135,7 @@
                 
                 <div id="listaPC">
 	                
-	                <%if(clases.isEmpty()){ %>
+	                <%if(clases.length >= 1){ %>
 	                	<p style="text-align:center ">No tiene clases.</p>
 	                	<br> <br>
 	                <%}else{ %>
@@ -216,7 +216,7 @@
 	                  
                   </div>
                   <div id="listaMovil" style="display: none;">
-	                  	<%if(!clases.isEmpty()){ %>
+	                  	<%if(clases.length >= 1){ %>
 	                 	<div id="nav-wrapper">
 						    <ul class="nav nav-tabs">
 						    

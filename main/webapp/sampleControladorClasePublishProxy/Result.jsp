@@ -68,133 +68,133 @@ case 13:
         if(!arg0_1id.equals("")){
          arg0_1idTemp  = arg0_1id;
         }
-        String arg1_2id=  request.getParameter("arg118");
-            java.lang.String arg1_2idTemp = null;
-        if(!arg1_2id.equals("")){
-         arg1_2idTemp  = arg1_2id;
-        }
-        String hora_4id=  request.getParameter("hora22");
-        int hora_4idTemp  = Integer.parseInt(hora_4id);
-        String mAXHORA_5id=  request.getParameter("mAXHORA24");
-        int mAXHORA_5idTemp  = Integer.parseInt(mAXHORA_5id);
-        String seg_6id=  request.getParameter("seg26");
-        int seg_6idTemp  = Integer.parseInt(seg_6id);
-        String min_7id=  request.getParameter("min28");
-        int min_7idTemp  = Integer.parseInt(min_7id);
-        String mINMIN_8id=  request.getParameter("mINMIN30");
-        int mINMIN_8idTemp  = Integer.parseInt(mINMIN_8id);
-        String mINSEG_9id=  request.getParameter("mINSEG32");
-        int mINSEG_9idTemp  = Integer.parseInt(mINSEG_9id);
-        String mAXMIN_10id=  request.getParameter("mAXMIN34");
-        int mAXMIN_10idTemp  = Integer.parseInt(mAXMIN_10id);
-        String mAXSEG_11id=  request.getParameter("mAXSEG36");
-        int mAXSEG_11idTemp  = Integer.parseInt(mAXSEG_11id);
-        String mINHORA_12id=  request.getParameter("mINHORA38");
-        int mINHORA_12idTemp  = Integer.parseInt(mINHORA_12id);
-        %>
-        <jsp:useBean id="publicadores1DtFechaHora_3id" scope="session" class="publicadores.DtFechaHora" />
-        <%
-        publicadores1DtFechaHora_3id.setHora(hora_4idTemp);
-        publicadores1DtFechaHora_3id.setMAXHORA(mAXHORA_5idTemp);
-        publicadores1DtFechaHora_3id.setSeg(seg_6idTemp);
-        publicadores1DtFechaHora_3id.setMin(min_7idTemp);
-        publicadores1DtFechaHora_3id.setMINMIN(mINMIN_8idTemp);
-        publicadores1DtFechaHora_3id.setMINSEG(mINSEG_9idTemp);
-        publicadores1DtFechaHora_3id.setMAXMIN(mAXMIN_10idTemp);
-        publicadores1DtFechaHora_3id.setMAXSEG(mAXSEG_11idTemp);
-        publicadores1DtFechaHora_3id.setMINHORA(mINHORA_12idTemp);
-        String arg3_13id=  request.getParameter("arg340");
-            java.lang.String arg3_13idTemp = null;
-        if(!arg3_13id.equals("")){
-         arg3_13idTemp  = arg3_13id;
-        }
-        String arg4_14id=  request.getParameter("arg442");
-            java.lang.String arg4_14idTemp = null;
-        if(!arg4_14id.equals("")){
-         arg4_14idTemp  = arg4_14id;
-        }
-        String anio_16id=  request.getParameter("anio46");
-        int anio_16idTemp  = Integer.parseInt(anio_16id);
-        String mINDIA_17id=  request.getParameter("mINDIA48");
-        int mINDIA_17idTemp  = Integer.parseInt(mINDIA_17id);
-        String mAXDIA_18id=  request.getParameter("mAXDIA50");
-        int mAXDIA_18idTemp  = Integer.parseInt(mAXDIA_18id);
-        String mAXANIO_19id=  request.getParameter("mAXANIO52");
-        int mAXANIO_19idTemp  = Integer.parseInt(mAXANIO_19id);
-        String mes_20id=  request.getParameter("mes54");
-        int mes_20idTemp  = Integer.parseInt(mes_20id);
-        String mINMES_21id=  request.getParameter("mINMES56");
-        int mINMES_21idTemp  = Integer.parseInt(mINMES_21id);
-        String mAXMES_22id=  request.getParameter("mAXMES58");
-        int mAXMES_22idTemp  = Integer.parseInt(mAXMES_22id);
-        String dia_23id=  request.getParameter("dia60");
-        int dia_23idTemp  = Integer.parseInt(dia_23id);
-        String mINANIO_24id=  request.getParameter("mINANIO62");
-        int mINANIO_24idTemp  = Integer.parseInt(mINANIO_24id);
-        %>
-        <jsp:useBean id="publicadores1DtFecha_15id" scope="session" class="publicadores.DtFecha" />
-        <%
-        publicadores1DtFecha_15id.setAnio(anio_16idTemp);
-        publicadores1DtFecha_15id.setMINDIA(mINDIA_17idTemp);
-        publicadores1DtFecha_15id.setMAXDIA(mAXDIA_18idTemp);
-        publicadores1DtFecha_15id.setMAXANIO(mAXANIO_19idTemp);
-        publicadores1DtFecha_15id.setMes(mes_20idTemp);
-        publicadores1DtFecha_15id.setMINMES(mINMES_21idTemp);
-        publicadores1DtFecha_15id.setMAXMES(mAXMES_22idTemp);
-        publicadores1DtFecha_15id.setDia(dia_23idTemp);
-        publicadores1DtFecha_15id.setMINANIO(mINANIO_24idTemp);
-        String arg6_25id=  request.getParameter("arg664");
-            java.lang.String arg6_25idTemp = null;
-        if(!arg6_25id.equals("")){
-         arg6_25idTemp  = arg6_25id;
-        }
-        sampleControladorClasePublishProxyid.addClase(arg0_1idTemp,arg1_2idTemp,publicadores1DtFechaHora_3id,arg3_13idTemp,arg4_14idTemp,publicadores1DtFecha_15id,arg6_25idTemp);
-break;
-case 66:
-        gotMethod = true;
-        String arg0_26id=  request.getParameter("arg069");
-            java.lang.String arg0_26idTemp = null;
-        if(!arg0_26id.equals("")){
-         arg0_26idTemp  = arg0_26id;
-        }
-        java.lang.String[] listarActividadesDeportivas66mtemp = sampleControladorClasePublishProxyid.listarActividadesDeportivas(arg0_26idTemp);
-if(listarActividadesDeportivas66mtemp == null){
+        java.lang.String[] listarActividadesDeportivas13mtemp = sampleControladorClasePublishProxyid.listarActividadesDeportivas(arg0_1idTemp);
+if(listarActividadesDeportivas13mtemp == null){
 %>
-<%=listarActividadesDeportivas66mtemp %>
+<%=listarActividadesDeportivas13mtemp %>
 <%
 }else{
-        String tempreturnp67 = null;
-        if(listarActividadesDeportivas66mtemp != null){
-        java.util.List listreturnp67= java.util.Arrays.asList(listarActividadesDeportivas66mtemp);
-        tempreturnp67 = listreturnp67.toString();
+        String tempreturnp14 = null;
+        if(listarActividadesDeportivas13mtemp != null){
+        java.util.List listreturnp14= java.util.Arrays.asList(listarActividadesDeportivas13mtemp);
+        tempreturnp14 = listreturnp14.toString();
         }
         %>
-        <%=tempreturnp67%>
+        <%=tempreturnp14%>
         <%
 }
 break;
-case 71:
+case 18:
         gotMethod = true;
-        String arg0_27id=  request.getParameter("arg074");
-            java.lang.String arg0_27idTemp = null;
-        if(!arg0_27id.equals("")){
-         arg0_27idTemp  = arg0_27id;
+        String arg0_2id=  request.getParameter("arg021");
+            java.lang.String arg0_2idTemp = null;
+        if(!arg0_2id.equals("")){
+         arg0_2idTemp  = arg0_2id;
         }
-        java.lang.String[] listarClases71mtemp = sampleControladorClasePublishProxyid.listarClases(arg0_27idTemp);
-if(listarClases71mtemp == null){
+        java.lang.String[] listarClases18mtemp = sampleControladorClasePublishProxyid.listarClases(arg0_2idTemp);
+if(listarClases18mtemp == null){
 %>
-<%=listarClases71mtemp %>
+<%=listarClases18mtemp %>
 <%
 }else{
-        String tempreturnp72 = null;
-        if(listarClases71mtemp != null){
-        java.util.List listreturnp72= java.util.Arrays.asList(listarClases71mtemp);
-        tempreturnp72 = listreturnp72.toString();
+        String tempreturnp19 = null;
+        if(listarClases18mtemp != null){
+        java.util.List listreturnp19= java.util.Arrays.asList(listarClases18mtemp);
+        tempreturnp19 = listreturnp19.toString();
         }
         %>
-        <%=tempreturnp72%>
+        <%=tempreturnp19%>
         <%
 }
+break;
+case 23:
+        gotMethod = true;
+        String arg0_3id=  request.getParameter("arg026");
+            java.lang.String arg0_3idTemp = null;
+        if(!arg0_3id.equals("")){
+         arg0_3idTemp  = arg0_3id;
+        }
+        String arg1_4id=  request.getParameter("arg128");
+            java.lang.String arg1_4idTemp = null;
+        if(!arg1_4id.equals("")){
+         arg1_4idTemp  = arg1_4id;
+        }
+        String hora_6id=  request.getParameter("hora32");
+        int hora_6idTemp  = Integer.parseInt(hora_6id);
+        String mAXHORA_7id=  request.getParameter("mAXHORA34");
+        int mAXHORA_7idTemp  = Integer.parseInt(mAXHORA_7id);
+        String seg_8id=  request.getParameter("seg36");
+        int seg_8idTemp  = Integer.parseInt(seg_8id);
+        String min_9id=  request.getParameter("min38");
+        int min_9idTemp  = Integer.parseInt(min_9id);
+        String mINMIN_10id=  request.getParameter("mINMIN40");
+        int mINMIN_10idTemp  = Integer.parseInt(mINMIN_10id);
+        String mINSEG_11id=  request.getParameter("mINSEG42");
+        int mINSEG_11idTemp  = Integer.parseInt(mINSEG_11id);
+        String mAXMIN_12id=  request.getParameter("mAXMIN44");
+        int mAXMIN_12idTemp  = Integer.parseInt(mAXMIN_12id);
+        String mAXSEG_13id=  request.getParameter("mAXSEG46");
+        int mAXSEG_13idTemp  = Integer.parseInt(mAXSEG_13id);
+        String mINHORA_14id=  request.getParameter("mINHORA48");
+        int mINHORA_14idTemp  = Integer.parseInt(mINHORA_14id);
+        %>
+        <jsp:useBean id="publicadores1DtFechaHora_5id" scope="session" class="publicadores.DtFechaHora" />
+        <%
+        publicadores1DtFechaHora_5id.setHora(hora_6idTemp);
+        publicadores1DtFechaHora_5id.setMAXHORA(mAXHORA_7idTemp);
+        publicadores1DtFechaHora_5id.setSeg(seg_8idTemp);
+        publicadores1DtFechaHora_5id.setMin(min_9idTemp);
+        publicadores1DtFechaHora_5id.setMINMIN(mINMIN_10idTemp);
+        publicadores1DtFechaHora_5id.setMINSEG(mINSEG_11idTemp);
+        publicadores1DtFechaHora_5id.setMAXMIN(mAXMIN_12idTemp);
+        publicadores1DtFechaHora_5id.setMAXSEG(mAXSEG_13idTemp);
+        publicadores1DtFechaHora_5id.setMINHORA(mINHORA_14idTemp);
+        String arg3_15id=  request.getParameter("arg350");
+            java.lang.String arg3_15idTemp = null;
+        if(!arg3_15id.equals("")){
+         arg3_15idTemp  = arg3_15id;
+        }
+        String arg4_16id=  request.getParameter("arg452");
+            java.lang.String arg4_16idTemp = null;
+        if(!arg4_16id.equals("")){
+         arg4_16idTemp  = arg4_16id;
+        }
+        String anio_18id=  request.getParameter("anio56");
+        int anio_18idTemp  = Integer.parseInt(anio_18id);
+        String mINDIA_19id=  request.getParameter("mINDIA58");
+        int mINDIA_19idTemp  = Integer.parseInt(mINDIA_19id);
+        String mAXDIA_20id=  request.getParameter("mAXDIA60");
+        int mAXDIA_20idTemp  = Integer.parseInt(mAXDIA_20id);
+        String mAXANIO_21id=  request.getParameter("mAXANIO62");
+        int mAXANIO_21idTemp  = Integer.parseInt(mAXANIO_21id);
+        String mes_22id=  request.getParameter("mes64");
+        int mes_22idTemp  = Integer.parseInt(mes_22id);
+        String mINMES_23id=  request.getParameter("mINMES66");
+        int mINMES_23idTemp  = Integer.parseInt(mINMES_23id);
+        String mAXMES_24id=  request.getParameter("mAXMES68");
+        int mAXMES_24idTemp  = Integer.parseInt(mAXMES_24id);
+        String dia_25id=  request.getParameter("dia70");
+        int dia_25idTemp  = Integer.parseInt(dia_25id);
+        String mINANIO_26id=  request.getParameter("mINANIO72");
+        int mINANIO_26idTemp  = Integer.parseInt(mINANIO_26id);
+        %>
+        <jsp:useBean id="publicadores1DtFecha_17id" scope="session" class="publicadores.DtFecha" />
+        <%
+        publicadores1DtFecha_17id.setAnio(anio_18idTemp);
+        publicadores1DtFecha_17id.setMINDIA(mINDIA_19idTemp);
+        publicadores1DtFecha_17id.setMAXDIA(mAXDIA_20idTemp);
+        publicadores1DtFecha_17id.setMAXANIO(mAXANIO_21idTemp);
+        publicadores1DtFecha_17id.setMes(mes_22idTemp);
+        publicadores1DtFecha_17id.setMINMES(mINMES_23idTemp);
+        publicadores1DtFecha_17id.setMAXMES(mAXMES_24idTemp);
+        publicadores1DtFecha_17id.setDia(dia_25idTemp);
+        publicadores1DtFecha_17id.setMINANIO(mINANIO_26idTemp);
+        String arg6_27id=  request.getParameter("arg674");
+            java.lang.String arg6_27idTemp = null;
+        if(!arg6_27id.equals("")){
+         arg6_27idTemp  = arg6_27id;
+        }
+        sampleControladorClasePublishProxyid.addClase(arg0_3idTemp,arg1_4idTemp,publicadores1DtFechaHora_5id,arg3_15idTemp,arg4_16idTemp,publicadores1DtFecha_17id,arg6_27idTemp);
 break;
 case 76:
         gotMethod = true;

@@ -12,6 +12,7 @@ public interface ControladorActDepPublish extends java.rmi.Remote {
     public publicadores.DtActividadDeportiva consultaActividadDeportiva(java.lang.String arg0) throws java.rmi.RemoteException;
     public publicadores.DtActividadDeportiva registoDictadoDeClase(java.lang.String arg0) throws java.rmi.RemoteException;
     public void eliminarRegistroClase(java.lang.String arg0, java.lang.String arg1) throws java.rmi.RemoteException;
+    public publicadores.DtActividadDeportiva[] agregarActDepArray(publicadores.DtActividadDeportiva[] arg0, publicadores.DtActividadDeportiva arg1) throws java.rmi.RemoteException;
     public void altaActividadDeportiva(java.lang.String arg0, java.lang.String arg1, java.lang.String arg2, int arg3, float arg4, publicadores.DtFecha arg5, java.lang.String arg6) throws java.rmi.RemoteException;
     public java.lang.String[] listarActividadesDeportivas(java.lang.String arg0) throws java.rmi.RemoteException;
     public java.lang.String[] listarClases(java.lang.String arg0) throws java.rmi.RemoteException;
@@ -22,4 +23,5 @@ public interface ControladorActDepPublish extends java.rmi.Remote {
     public void modificarActividadDeportiva(publicadores.DtActividadDeportiva arg0) throws java.rmi.RemoteException;
     public java.lang.String[] getActividadesDeportivas() throws java.rmi.RemoteException;
     public publicadores.DtActividadDeportiva getDtActividadDeportiva(java.lang.String arg0) throws java.rmi.RemoteException;
+    public publicadores.DtActividadDeportiva[] rankingActividadesDeportivas() throws java.rmi.RemoteException;
 }

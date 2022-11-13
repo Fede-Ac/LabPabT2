@@ -29,16 +29,18 @@
 	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	
 	String[] actividades = portAD.getActividadesDeportivas();
-	ArrayList<DtActividadDeportiva> dtActividades = new ArrayList<DtActividadDeportiva>();
+	DtActividadDeportiva[] dtActividades = null;
 	for (String a : actividades) {
-		dtActividades.add(portAD.getDtActividadDeportiva(a));
+		dtActividades = portAD.agregarActDepArray(dtActividades, portAD.getDtActividadDeportiva(a));
+		//dtClases = portC.agregarClaseArray(dtClases, portAD.getDtClase(b)); 
+		//agregarActDepArray(DtActividadDeportiva[] arrayDtActDep, DtActividadDeportiva dtActDep)
 	}
 
 	DtActividadDeportiva actividadActiva = null;
 	String ranking = request.getParameter("ranking");
 	if(ranking != null){
 		//Acá Enzo: No sé de dónde se saca rankingActividadesDeportivas, por eso no le puse el port
-		dtActividades = rankingActividadesDeportivas();
+		dtActividades = portAD.rankingActividadesDeportivas();
 	}
 	%>
 	
@@ -111,7 +113,7 @@
 														<div style="display: grid;">
 															<div class="row">
 																<%
-																if(!a.getClases().isEmpty()){
+																if(a.getClases().length >= 1){
 																
 																for (DtClase dtc : a.getClases()) {
 																%>

@@ -19,9 +19,10 @@
 <LI><A HREF="Input.jsp?method=201" TARGET="inputs"> listarInstituciones()</A></LI>
 <LI><A HREF="Input.jsp?method=204" TARGET="inputs"> altaRegistroDictadoDeClase(java.lang.String,java.lang.String)</A></LI>
 <LI><A HREF="Input.jsp?method=211" TARGET="inputs"> getSocios()</A></LI>
-<LI><A HREF="Input.jsp?method=214" TARGET="inputs"> modificarActividadDeportiva(publicadores.DtActividadDeportiva)</A></LI>
-<LI><A HREF="Input.jsp?method=249" TARGET="inputs"> getActividadesDeportivas()</A></LI>
-<LI><A HREF="Input.jsp?method=252" TARGET="inputs"> getDtActividadDeportiva(java.lang.String)</A></LI>
+<LI><A HREF="Input.jsp?method=214" TARGET="inputs"> getActividadesDeportivas()</A></LI>
+<LI><A HREF="Input.jsp?method=217" TARGET="inputs"> getDtActividadDeportiva(java.lang.String)</A></LI>
+<LI><A HREF="Input.jsp?method=252" TARGET="inputs"> rankingActividadesDeportivas()</A></LI>
+<LI><A HREF="Input.jsp?method=255" TARGET="inputs"> modificarActividadDeportiva(publicadores.DtActividadDeportiva)</A></LI>
 </UL>
 </BODY>
 </HTML>

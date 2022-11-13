@@ -987,98 +987,33 @@ if(getSocios211mtemp == null){
 break;
 case 214:
         gotMethod = true;
-        String descripcion_28id=  request.getParameter("descripcion219");
-            java.lang.String descripcion_28idTemp = null;
-        if(!descripcion_28id.equals("")){
-         descripcion_28idTemp  = descripcion_28id;
-        }
-        String duracion_29id=  request.getParameter("duracion221");
-        int duracion_29idTemp  = Integer.parseInt(duracion_29id);
-        String picture_30id=  request.getParameter("picture223");
-            java.lang.String picture_30idTemp = null;
-        if(!picture_30id.equals("")){
-         picture_30idTemp  = picture_30id;
-        }
-        String costo_31id=  request.getParameter("costo225");
-            java.lang.Float costo_31idTemp = null;
-        if(!costo_31id.equals("")){
-         costo_31idTemp  = java.lang.Float.valueOf(costo_31id);
-        }
-        String nombre_32id=  request.getParameter("nombre227");
-            java.lang.String nombre_32idTemp = null;
-        if(!nombre_32id.equals("")){
-         nombre_32idTemp  = nombre_32id;
-        }
-        String anio_34id=  request.getParameter("anio231");
-        int anio_34idTemp  = Integer.parseInt(anio_34id);
-        String mINDIA_35id=  request.getParameter("mINDIA233");
-        int mINDIA_35idTemp  = Integer.parseInt(mINDIA_35id);
-        String mAXDIA_36id=  request.getParameter("mAXDIA235");
-        int mAXDIA_36idTemp  = Integer.parseInt(mAXDIA_36id);
-        String mAXANIO_37id=  request.getParameter("mAXANIO237");
-        int mAXANIO_37idTemp  = Integer.parseInt(mAXANIO_37id);
-        String mes_38id=  request.getParameter("mes239");
-        int mes_38idTemp  = Integer.parseInt(mes_38id);
-        String mINMES_39id=  request.getParameter("mINMES241");
-        int mINMES_39idTemp  = Integer.parseInt(mINMES_39id);
-        String mAXMES_40id=  request.getParameter("mAXMES243");
-        int mAXMES_40idTemp  = Integer.parseInt(mAXMES_40id);
-        String dia_41id=  request.getParameter("dia245");
-        int dia_41idTemp  = Integer.parseInt(dia_41id);
-        String mINANIO_42id=  request.getParameter("mINANIO247");
-        int mINANIO_42idTemp  = Integer.parseInt(mINANIO_42id);
-        %>
-        <jsp:useBean id="publicadores1DtFecha_33id" scope="session" class="publicadores.DtFecha" />
-        <%
-        publicadores1DtFecha_33id.setAnio(anio_34idTemp);
-        publicadores1DtFecha_33id.setMINDIA(mINDIA_35idTemp);
-        publicadores1DtFecha_33id.setMAXDIA(mAXDIA_36idTemp);
-        publicadores1DtFecha_33id.setMAXANIO(mAXANIO_37idTemp);
-        publicadores1DtFecha_33id.setMes(mes_38idTemp);
-        publicadores1DtFecha_33id.setMINMES(mINMES_39idTemp);
-        publicadores1DtFecha_33id.setMAXMES(mAXMES_40idTemp);
-        publicadores1DtFecha_33id.setDia(dia_41idTemp);
-        publicadores1DtFecha_33id.setMINANIO(mINANIO_42idTemp);
-        %>
-        <jsp:useBean id="publicadores1DtActividadDeportiva_27id" scope="session" class="publicadores.DtActividadDeportiva" />
-        <%
-        publicadores1DtActividadDeportiva_27id.setDescripcion(descripcion_28idTemp);
-        publicadores1DtActividadDeportiva_27id.setDuracion(duracion_29idTemp);
-        publicadores1DtActividadDeportiva_27id.setPicture(picture_30idTemp);
-        publicadores1DtActividadDeportiva_27id.setCosto(costo_31idTemp);
-        publicadores1DtActividadDeportiva_27id.setNombre(nombre_32idTemp);
-        publicadores1DtActividadDeportiva_27id.setFechaReg(publicadores1DtFecha_33id);
-        sampleControladorActDepPublishProxyid.modificarActividadDeportiva(publicadores1DtActividadDeportiva_27id);
-break;
-case 249:
-        gotMethod = true;
-        java.lang.String[] getActividadesDeportivas249mtemp = sampleControladorActDepPublishProxyid.getActividadesDeportivas();
-if(getActividadesDeportivas249mtemp == null){
+        java.lang.String[] getActividadesDeportivas214mtemp = sampleControladorActDepPublishProxyid.getActividadesDeportivas();
+if(getActividadesDeportivas214mtemp == null){
 %>
-<%=getActividadesDeportivas249mtemp %>
+<%=getActividadesDeportivas214mtemp %>
 <%
 }else{
-        String tempreturnp250 = null;
-        if(getActividadesDeportivas249mtemp != null){
-        java.util.List listreturnp250= java.util.Arrays.asList(getActividadesDeportivas249mtemp);
-        tempreturnp250 = listreturnp250.toString();
+        String tempreturnp215 = null;
+        if(getActividadesDeportivas214mtemp != null){
+        java.util.List listreturnp215= java.util.Arrays.asList(getActividadesDeportivas214mtemp);
+        tempreturnp215 = listreturnp215.toString();
         }
         %>
-        <%=tempreturnp250%>
+        <%=tempreturnp215%>
         <%
 }
 break;
-case 252:
+case 217:
         gotMethod = true;
-        String arg0_43id=  request.getParameter("arg0285");
-            java.lang.String arg0_43idTemp = null;
-        if(!arg0_43id.equals("")){
-         arg0_43idTemp  = arg0_43id;
+        String arg0_27id=  request.getParameter("arg0250");
+            java.lang.String arg0_27idTemp = null;
+        if(!arg0_27id.equals("")){
+         arg0_27idTemp  = arg0_27id;
         }
-        publicadores.DtActividadDeportiva getDtActividadDeportiva252mtemp = sampleControladorActDepPublishProxyid.getDtActividadDeportiva(arg0_43idTemp);
-if(getDtActividadDeportiva252mtemp == null){
+        publicadores.DtActividadDeportiva getDtActividadDeportiva217mtemp = sampleControladorActDepPublishProxyid.getDtActividadDeportiva(arg0_27idTemp);
+if(getDtActividadDeportiva217mtemp == null){
 %>
-<%=getDtActividadDeportiva252mtemp %>
+<%=getDtActividadDeportiva217mtemp %>
 <%
 }else{
 %>
@@ -1090,11 +1025,11 @@ if(getDtActividadDeportiva252mtemp == null){
 <TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-java.lang.String typedescripcion255 = getDtActividadDeportiva252mtemp.getDescripcion();
-        String tempResultdescripcion255 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion255));
+if(getDtActividadDeportiva217mtemp != null){
+java.lang.String typedescripcion220 = getDtActividadDeportiva217mtemp.getDescripcion();
+        String tempResultdescripcion220 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typedescripcion220));
         %>
-        <%= tempResultdescripcion255 %>
+        <%= tempResultdescripcion220 %>
         <%
 }%>
 </TD>
@@ -1103,9 +1038,9 @@ java.lang.String typedescripcion255 = getDtActividadDeportiva252mtemp.getDescrip
 <TD COLSPAN="2" ALIGN="LEFT">duracion:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
+if(getDtActividadDeportiva217mtemp != null){
 %>
-<%=getDtActividadDeportiva252mtemp.getDuracion()
+<%=getDtActividadDeportiva217mtemp.getDuracion()
 %><%}%>
 </TD>
 <TR>
@@ -1113,11 +1048,11 @@ if(getDtActividadDeportiva252mtemp != null){
 <TD COLSPAN="2" ALIGN="LEFT">picture:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-java.lang.String typepicture259 = getDtActividadDeportiva252mtemp.getPicture();
-        String tempResultpicture259 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepicture259));
+if(getDtActividadDeportiva217mtemp != null){
+java.lang.String typepicture224 = getDtActividadDeportiva217mtemp.getPicture();
+        String tempResultpicture224 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typepicture224));
         %>
-        <%= tempResultpicture259 %>
+        <%= tempResultpicture224 %>
         <%
 }%>
 </TD>
@@ -1126,11 +1061,11 @@ java.lang.String typepicture259 = getDtActividadDeportiva252mtemp.getPicture();
 <TD COLSPAN="2" ALIGN="LEFT">costo:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-java.lang.Float typecosto261 = getDtActividadDeportiva252mtemp.getCosto();
-        String tempResultcosto261 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typecosto261));
+if(getDtActividadDeportiva217mtemp != null){
+java.lang.Float typecosto226 = getDtActividadDeportiva217mtemp.getCosto();
+        String tempResultcosto226 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typecosto226));
         %>
-        <%= tempResultcosto261 %>
+        <%= tempResultcosto226 %>
         <%
 }%>
 </TD>
@@ -1139,11 +1074,11 @@ java.lang.Float typecosto261 = getDtActividadDeportiva252mtemp.getCosto();
 <TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-java.lang.String typenombre263 = getDtActividadDeportiva252mtemp.getNombre();
-        String tempResultnombre263 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre263));
+if(getDtActividadDeportiva217mtemp != null){
+java.lang.String typenombre228 = getDtActividadDeportiva217mtemp.getNombre();
+        String tempResultnombre228 = org.eclipse.jst.ws.util.JspUtils.markup(String.valueOf(typenombre228));
         %>
-        <%= tempResultnombre263 %>
+        <%= tempResultnombre228 %>
         <%
 }%>
 </TD>
@@ -1156,8 +1091,8 @@ java.lang.String typenombre263 = getDtActividadDeportiva252mtemp.getNombre();
 <TD COLSPAN="1" ALIGN="LEFT">anio:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getAnio()
@@ -1169,8 +1104,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINDIA:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINDIA()
@@ -1182,8 +1117,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXDIA:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXDIA()
@@ -1195,8 +1130,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXANIO:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXANIO()
@@ -1208,8 +1143,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mes:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMes()
@@ -1221,8 +1156,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINMES:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINMES()
@@ -1234,8 +1169,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mAXMES:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMAXMES()
@@ -1247,8 +1182,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">dia:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getDia()
@@ -1260,8 +1195,8 @@ if(tebece0 != null){
 <TD COLSPAN="1" ALIGN="LEFT">mINANIO:</TD>
 <TD>
 <%
-if(getDtActividadDeportiva252mtemp != null){
-publicadores.DtFecha tebece0=getDtActividadDeportiva252mtemp.getFechaReg();
+if(getDtActividadDeportiva217mtemp != null){
+publicadores.DtFecha tebece0=getDtActividadDeportiva217mtemp.getFechaReg();
 if(tebece0 != null){
 %>
 <%=tebece0.getMINANIO()
@@ -1270,6 +1205,89 @@ if(tebece0 != null){
 </TABLE>
 <%
 }
+break;
+case 252:
+        gotMethod = true;
+        publicadores.DtActividadDeportiva[] rankingActividadesDeportivas252mtemp = sampleControladorActDepPublishProxyid.rankingActividadesDeportivas();
+if(rankingActividadesDeportivas252mtemp == null){
+%>
+<%=rankingActividadesDeportivas252mtemp %>
+<%
+}else{
+        String tempreturnp253 = null;
+        if(rankingActividadesDeportivas252mtemp != null){
+        java.util.List listreturnp253= java.util.Arrays.asList(rankingActividadesDeportivas252mtemp);
+        tempreturnp253 = listreturnp253.toString();
+        }
+        %>
+        <%=tempreturnp253%>
+        <%
+}
+break;
+case 255:
+        gotMethod = true;
+        String descripcion_29id=  request.getParameter("descripcion260");
+            java.lang.String descripcion_29idTemp = null;
+        if(!descripcion_29id.equals("")){
+         descripcion_29idTemp  = descripcion_29id;
+        }
+        String duracion_30id=  request.getParameter("duracion262");
+        int duracion_30idTemp  = Integer.parseInt(duracion_30id);
+        String picture_31id=  request.getParameter("picture264");
+            java.lang.String picture_31idTemp = null;
+        if(!picture_31id.equals("")){
+         picture_31idTemp  = picture_31id;
+        }
+        String costo_32id=  request.getParameter("costo266");
+            java.lang.Float costo_32idTemp = null;
+        if(!costo_32id.equals("")){
+         costo_32idTemp  = java.lang.Float.valueOf(costo_32id);
+        }
+        String nombre_33id=  request.getParameter("nombre268");
+            java.lang.String nombre_33idTemp = null;
+        if(!nombre_33id.equals("")){
+         nombre_33idTemp  = nombre_33id;
+        }
+        String anio_35id=  request.getParameter("anio272");
+        int anio_35idTemp  = Integer.parseInt(anio_35id);
+        String mINDIA_36id=  request.getParameter("mINDIA274");
+        int mINDIA_36idTemp  = Integer.parseInt(mINDIA_36id);
+        String mAXDIA_37id=  request.getParameter("mAXDIA276");
+        int mAXDIA_37idTemp  = Integer.parseInt(mAXDIA_37id);
+        String mAXANIO_38id=  request.getParameter("mAXANIO278");
+        int mAXANIO_38idTemp  = Integer.parseInt(mAXANIO_38id);
+        String mes_39id=  request.getParameter("mes280");
+        int mes_39idTemp  = Integer.parseInt(mes_39id);
+        String mINMES_40id=  request.getParameter("mINMES282");
+        int mINMES_40idTemp  = Integer.parseInt(mINMES_40id);
+        String mAXMES_41id=  request.getParameter("mAXMES284");
+        int mAXMES_41idTemp  = Integer.parseInt(mAXMES_41id);
+        String dia_42id=  request.getParameter("dia286");
+        int dia_42idTemp  = Integer.parseInt(dia_42id);
+        String mINANIO_43id=  request.getParameter("mINANIO288");
+        int mINANIO_43idTemp  = Integer.parseInt(mINANIO_43id);
+        %>
+        <jsp:useBean id="publicadores1DtFecha_34id" scope="session" class="publicadores.DtFecha" />
+        <%
+        publicadores1DtFecha_34id.setAnio(anio_35idTemp);
+        publicadores1DtFecha_34id.setMINDIA(mINDIA_36idTemp);
+        publicadores1DtFecha_34id.setMAXDIA(mAXDIA_37idTemp);
+        publicadores1DtFecha_34id.setMAXANIO(mAXANIO_38idTemp);
+        publicadores1DtFecha_34id.setMes(mes_39idTemp);
+        publicadores1DtFecha_34id.setMINMES(mINMES_40idTemp);
+        publicadores1DtFecha_34id.setMAXMES(mAXMES_41idTemp);
+        publicadores1DtFecha_34id.setDia(dia_42idTemp);
+        publicadores1DtFecha_34id.setMINANIO(mINANIO_43idTemp);
+        %>
+        <jsp:useBean id="publicadores1DtActividadDeportiva_28id" scope="session" class="publicadores.DtActividadDeportiva" />
+        <%
+        publicadores1DtActividadDeportiva_28id.setDescripcion(descripcion_29idTemp);
+        publicadores1DtActividadDeportiva_28id.setDuracion(duracion_30idTemp);
+        publicadores1DtActividadDeportiva_28id.setPicture(picture_31idTemp);
+        publicadores1DtActividadDeportiva_28id.setCosto(costo_32idTemp);
+        publicadores1DtActividadDeportiva_28id.setNombre(nombre_33idTemp);
+        publicadores1DtActividadDeportiva_28id.setFechaReg(publicadores1DtFecha_34id);
+        sampleControladorActDepPublishProxyid.modificarActividadDeportiva(publicadores1DtActividadDeportiva_28id);
 break;
 }
 } catch (Exception e) { 

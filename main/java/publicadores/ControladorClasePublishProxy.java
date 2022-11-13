@@ -44,10 +44,10 @@ public class ControladorClasePublishProxy implements publicadores.ControladorCla
     return controladorClasePublish;
   }
   
-  public void addClase(java.lang.String arg0, java.lang.String arg1, publicadores.DtFechaHora arg2, java.lang.String arg3, java.lang.String arg4, publicadores.DtFecha arg5, java.lang.String arg6) throws java.rmi.RemoteException{
+  public publicadores.DtClase[] agregarClaseArray(publicadores.DtClase[] arg0, publicadores.DtClase arg1) throws java.rmi.RemoteException{
     if (controladorClasePublish == null)
       _initControladorClasePublishProxy();
-    controladorClasePublish.addClase(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
+    return controladorClasePublish.agregarClaseArray(arg0, arg1);
   }
   
   public java.lang.String[] listarActividadesDeportivas(java.lang.String arg0) throws java.rmi.RemoteException{
@@ -60,6 +60,12 @@ public class ControladorClasePublishProxy implements publicadores.ControladorCla
     if (controladorClasePublish == null)
       _initControladorClasePublishProxy();
     return controladorClasePublish.listarClases(arg0);
+  }
+  
+  public void addClase(java.lang.String arg0, java.lang.String arg1, publicadores.DtFechaHora arg2, java.lang.String arg3, java.lang.String arg4, publicadores.DtFecha arg5, java.lang.String arg6) throws java.rmi.RemoteException{
+    if (controladorClasePublish == null)
+      _initControladorClasePublishProxy();
+    controladorClasePublish.addClase(arg0, arg1, arg2, arg3, arg4, arg5, arg6);
   }
   
   public java.lang.String[] listarInstituciones() throws java.rmi.RemoteException{

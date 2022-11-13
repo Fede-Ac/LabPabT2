@@ -48,12 +48,12 @@
 	//Todo esto está más o menos copiado del ConsultaActividadDeportiva
 	
 	String[] actividades = portAD.getActividadesDeportivas();
-	String[] clases;
-	DtClase[] dtClases;
+	String[] clases = null;
+	DtClase[] dtClases = null;
 	for (String a : actividades) {
 		clases = portC.listarClases(a);
 		for(String b : clases){
-			dtClases.add(getDtClase(b));
+			dtClases = portC.agregarClaseArray(dtClases, portAD.getDtClase(b)); 
 		}
 	}
 
@@ -172,7 +172,7 @@
 									                    		if(!sociosEnClase.isEmpty()){
 									                    		for(DtSocio H : sociosEnClase){
 									                    	%>
-									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico" style="background-image: url('<%=H.getpfp()%>'), url('imagenes/defPerfil.png')"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
+									                        <li class="list-group-item"> <div style="display:flex ;"><div class="perfil-icono perfil-icono-chico" style="background-image: url('<%=H.getPfp()%>'), url('imagenes/defPerfil.png')"></div><div style="margin-top: auto; margin-bottom:auto"><%=H.getNickname()%></div></div></li>
 									                    	<%
 																}
 									                    		}else{

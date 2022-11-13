@@ -85,8 +85,10 @@ public class ModificarUsuario extends HttpServlet {
 			} catch (ParseException e1) {
 				e1.printStackTrace();
 			}
-			
-			DtFecha fechaNac = new DtFecha(gc);
+		    int anio = gc.get(Calendar.YEAR);
+		    int mes = gc.get(Calendar.MONTH);
+		    int dia = gc.get(Calendar.DAY_OF_MONTH);
+			DtFecha fechaNac = new DtFecha(anio, mes, dia);
 	        DtUsuario dtu = consultaUsuario(nick);
 
 	        if(dtu instanceof DtProfesor){

@@ -31,7 +31,7 @@
 
 	HttpSession sesion = request.getSession();
 	String nickname = (String)sesion.getAttribute("nombreUsuario");
-	DtClase[] clasesRegistradas;
+	DtClase[] clasesRegistradas = null;
 	if(nickname != null){
 		DtUsuario dtu = portU.consultaUsuario(nickname);
 		if(dtu instanceof DtSocio){
@@ -42,8 +42,8 @@
 
 <%
 	DtUsuario dtu = portU.consultaUsuario(nickname);
-	String dia = String.format("%02d", dtu.getFecha().getDia());
-	String mes = String.format("%02d", dtu.getFecha().getMes());
+	String dia = String.format("%02d", dtu.getFechaNac().getDia());
+	String mes = String.format("%02d", dtu.getFechaNac().getMes());
 %>
 
     <div class="contenedor-total">
@@ -75,12 +75,12 @@
                 </div>
                 <br>
                 <div class="form-floating">
-                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFecha().getAnio()%>-<%=mes%>-<%=dia%>" name="fecNacimiento" required>
+                    <input type="date" class="form-control" id="floatingPassword" placeholder="Password" value="<%=dtu.getFechaNac().getAnio()%>-<%=mes%>-<%=dia%>" name="fecNacimiento" required>
                     <label for="floatingPassword">Fecha de nacimiento</label>
                 </div>
                 <br> <br>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getpfp()%>" name="imagen">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" value="<%=dtu.getPfp()%>" name="imagen">
                     <label for="floatingInput">URL de imágen de perfil</label>
                 </div><br>
                 
@@ -120,7 +120,7 @@
                 <div id="listaPC">
                 
                 
-                <%if(!clasesRegistradas.isEmpty()){ %>
+                <%if(clasesRegistradas.length >= 1){ %>
                 <div id="carouselExampleControls" style="width: 828px ; margin-left: auto;margin-right: auto;" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                     	
@@ -199,7 +199,7 @@
                   </div>
                   
                   <div id="listaMovil" style="display: none;">
-	                  	<%if(!clasesRegistradas.isEmpty()){ %>
+	                  	<%if(clasesRegistradas.length >= 1){ %>
 	                 	<div id="nav-wrapper">
 						    <ul class="nav nav-tabs">
 						    

@@ -60,7 +60,18 @@ public class AltaDictadoClase extends HttpServlet {
 		} catch (ParseException e1) {
 			e1.printStackTrace();
 		}
-		DtFechaHora fechaInicio = new DtFechaHora(gc, gc.get(Calendar.HOUR), gc.get(Calendar.MINUTE)); 
+		//max y min para publish
+	    final int MAXANIO = 2030;
+	    final int MINANIO = 1920;
+	    final int MINMES = 1;
+	    final int MAXMES = 12;
+	    final int MINDIA = 1;
+	    final int MAXDIA = 31;
+		
+	    int anio = gc.get(Calendar.YEAR);
+	    int mes = gc.get(Calendar.MONTH);
+	    int dia = gc.get(Calendar.DAY_OF_MONTH);
+		DtFechaHora fechaInicio = new DtFechaHora(MAXANIO, MAXANIO, MINMES, MAXMES, MINDIA, MAXDIA, anio, mes, dia, gc.get(Calendar.HOUR), gc.get(Calendar.MINUTE)); 
 		
 		String nombre = request.getParameter("nombre");
 		String urlClase = request.getParameter("urlClase");
@@ -76,7 +87,10 @@ public class AltaDictadoClase extends HttpServlet {
 		//
 		
 		Calendar c = Calendar.getInstance();
-		DtFecha fechaReg = new DtFecha(c);
+	    int anio2 = c.get(Calendar.YEAR);
+	    int mes2 = c.get(Calendar.MONTH);
+	    int dia2 = c.get(Calendar.DAY_OF_MONTH);
+		DtFecha fechaReg = new DtFecha(anio, mes, dia);
 		
 		
 		try {

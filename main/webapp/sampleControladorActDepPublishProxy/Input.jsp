@@ -325,103 +325,23 @@ valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="3" ALIGN="LEFT">arg0:</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion219" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">duracion:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracion221" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">picture:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="picture223" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">costo:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo225" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre227" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="2" ALIGN="LEFT">fechaReg:</TD>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">anio:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="anio231" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mINDIA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINDIA233" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mAXDIA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXDIA235" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mAXANIO:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXANIO237" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mes:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mes239" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mINMES:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMES241" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mAXMES:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMES243" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">dia:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="dia245" SIZE=20></TD>
-</TR>
-<TR>
-<TD WIDTH="5%"></TD>
-<TD WIDTH="5%"></TD>
-<TD COLSPAN="1" ALIGN="LEFT">mINANIO:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINANIO247" SIZE=20></TD>
-</TR>
-</TABLE>
 <BR>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">
 </FORM>
 <%
 break;
-case 249:
+case 217:
 valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0250" SIZE=20></TD>
+</TR>
+</TABLE>
 <BR>
 <INPUT TYPE="SUBMIT" VALUE="Invoke">
 <INPUT TYPE="RESET" VALUE="Clear">
@@ -433,10 +353,101 @@ valid = false;
 %>
 <FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
 <INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 255:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
 <TABLE>
 <TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg0285" SIZE=20></TD>
+<TD COLSPAN="3" ALIGN="LEFT">arg0:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">descripcion:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="descripcion260" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">duracion:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="duracion262" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">picture:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="picture264" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">costo:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="costo266" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">nombre:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="nombre268" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="2" ALIGN="LEFT">fechaReg:</TD>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">anio:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="anio272" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mINDIA:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINDIA274" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mAXDIA:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXDIA276" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mAXANIO:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXANIO278" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mes:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mes280" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mINMES:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMES282" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mAXMES:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMES284" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">dia:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="dia286" SIZE=20></TD>
+</TR>
+<TR>
+<TD WIDTH="5%"></TD>
+<TD WIDTH="5%"></TD>
+<TD COLSPAN="1" ALIGN="LEFT">mINANIO:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINANIO288" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>
