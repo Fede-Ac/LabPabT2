@@ -65,44 +65,10 @@ valid = false;
 <TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg016" SIZE=20></TD>
 </TR>
 </TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 18:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg021" SIZE=20></TD>
-</TR>
-</TABLE>
-<BR>
-<INPUT TYPE="SUBMIT" VALUE="Invoke">
-<INPUT TYPE="RESET" VALUE="Clear">
-</FORM>
-<%
-break;
-case 23:
-valid = false;
-%>
-<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
-<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
-<TABLE>
-<TR>
-<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg026" SIZE=20></TD>
-</TR>
-</TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg1:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg128" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg118" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
@@ -111,59 +77,59 @@ valid = false;
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">hora:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="hora32" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="hora22" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXHORA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXHORA34" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXHORA24" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">seg:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="seg36" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="seg26" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">min:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="min38" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="min28" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINMIN:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMIN40" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMIN30" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINSEG:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINSEG42" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINSEG32" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXMIN:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMIN44" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMIN34" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXSEG:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXSEG46" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXSEG36" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINHORA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINHORA48" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINHORA38" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg3:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg350" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg340" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg4:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg452" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg442" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
@@ -172,53 +138,87 @@ valid = false;
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">anio:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="anio56" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="anio46" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINDIA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINDIA58" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINDIA48" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXDIA:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXDIA60" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXDIA50" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXANIO:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXANIO62" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXANIO52" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mes:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mes64" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mes54" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINMES:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMES66" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINMES56" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mAXMES:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMES68" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mAXMES58" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">dia:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="dia70" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="dia60" SIZE=20></TD>
 </TR>
 <TR>
 <TD WIDTH="5%"></TD>
 <TD COLSPAN="2" ALIGN="LEFT">mINANIO:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINANIO72" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="mINANIO62" SIZE=20></TD>
 </TR>
 </TABLE>
 <TABLE>
 <TR>
 <TD COLSPAN="1" ALIGN="LEFT">arg6:</TD>
-<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg674" SIZE=20></TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg664" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 66:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg069" SIZE=20></TD>
+</TR>
+</TABLE>
+<BR>
+<INPUT TYPE="SUBMIT" VALUE="Invoke">
+<INPUT TYPE="RESET" VALUE="Clear">
+</FORM>
+<%
+break;
+case 71:
+valid = false;
+%>
+<FORM METHOD="POST" ACTION="Result.jsp" TARGET="result">
+<INPUT TYPE="HIDDEN" NAME="method" VALUE="<%=org.eclipse.jst.ws.util.JspUtils.markup(method)%>">
+<TABLE>
+<TR>
+<TD COLSPAN="1" ALIGN="LEFT">arg0:</TD>
+<TD ALIGN="left"><INPUT TYPE="TEXT" NAME="arg074" SIZE=20></TD>
 </TR>
 </TABLE>
 <BR>

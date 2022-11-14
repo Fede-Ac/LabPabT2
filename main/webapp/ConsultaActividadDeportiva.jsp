@@ -1,3 +1,4 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="publicadores.DtFecha"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="publicadores.DtActividadDeportiva"%>
@@ -29,9 +30,10 @@
 	ControladorActDepPublish portAD = cadps.getControladorActDepPublishPort();
 	
 	String[] actividades = portAD.getActividadesDeportivas();
-	DtActividadDeportiva[] dtActividades = null;
+	ArrayList<DtActividadDeportiva> dtActividades = new ArrayList<>();
 	for (String a : actividades) {
-		dtActividades = portAD.agregarActDepArray(dtActividades, portAD.getDtActividadDeportiva(a));
+		dtActividades.add(portAD.getDtActividadDeportiva(a));
+		//dtActividades = portAD.agregarActDepArray(dtActividades, portAD.getDtActividadDeportiva(a));
 		//dtClases = portC.agregarClaseArray(dtClases, portAD.getDtClase(b)); 
 		//agregarActDepArray(DtActividadDeportiva[] arrayDtActDep, DtActividadDeportiva dtActDep)
 	}
@@ -39,8 +41,11 @@
 	DtActividadDeportiva actividadActiva = null;
 	String ranking = request.getParameter("ranking");
 	if(ranking != null){
-		//Acá Enzo: No sé de dónde se saca rankingActividadesDeportivas, por eso no le puse el port
-		dtActividades = portAD.rankingActividadesDeportivas();
+		
+		DtActividadDeportiva[] dtAct = portAD.rankingActividadesDeportivas();
+		 for(int i = 0; i<dtAct.length; i++) {
+			 dtActividades.add(dtAct[i]);
+		 }
 	}
 	%>
 	
@@ -113,7 +118,8 @@
 														<div style="display: grid;">
 															<div class="row">
 																<%
-																if(a.getClases().length >= 1){
+																if(a.getClases() != null){
+																if(a.getClases().length >= 1){ //error porque dice que es null
 																
 																for (DtClase dtc : a.getClases()) {
 																%>
@@ -132,9 +138,9 @@
 																					style="display: block; width: fit-content; margin: auto; color: #ee8f4c; padding-bottom: 8px;"
 																					href="http://<%=dtc.getUrl()%>"><%=dtc.getUrl()%></a></li>
 																				<li class="list-group-item"
-																					style="text-align: center;"><%=dtc.getFechaInicio()%></li>
+																					style="text-align: center;"><%=dtc.getFechaInicio().getAnio()%>/<%=dtc.getFechaInicio().getMes()%>/<%=dtc.getFechaInicio().getDia()%> - <%=dtc.getFechaInicio().getHora()%>:<%=dtc.getFechaInicio().getMin()%></li>
 																				<li class="list-group-item"
-																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg()%></li>
+																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg().getAnio()%>/<%=dtc.getFechaReg().getMes()%>/<%=dtc.getFechaReg().getDia()%></li>
 																				<li class="list-group-item" style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">
 																					<a href="ConsultaDictadoClase.jsp" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
 																				</li>
@@ -147,6 +153,9 @@
 																}else{
 																%>
 																	<p style="text-align: center">No tiene clases.</p>
+																<%} 
+																}else{%>
+																<p style="text-align: center">No tiene clases.</p>
 																<%} %>
 															</div>
 														</div>
@@ -158,7 +167,7 @@
 
 										<li class="list-group-item"
 											style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro:
-											<%=registro%></li>
+											<%=registro.getAnio()%>/<%=registro.getMes()%>/<%=registro.getDia()%></li>
 									</ul>
 									<div class="container">
 										<div class="row">

@@ -64,7 +64,7 @@ if(tipoUsuario == null){
                                 <%if(tipoUsuario.equals("Socio")){ %> 
                                 <li><a class="dropdown-item" href="RegistroDictadoClase.jsp">Registrarse a una clase</a></li>
                                 <%} %>
-                                </ul>
+                            </ul>
                         </li>
                     </ul>
                 </div>

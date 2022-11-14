@@ -49,11 +49,13 @@
 	
 	String[] actividades = portAD.getActividadesDeportivas();
 	String[] clases = null;
-	DtClase[] dtClases = null;
+	DtClase[] dtClasesT = null;
+	ArrayList<DtClase> dtClases = new ArrayList<>();//modificado fede
 	for (String a : actividades) {
 		clases = portC.listarClases(a);
 		for(String b : clases){
-			dtClases = portC.agregarClaseArray(dtClases, portAD.getDtClase(b)); 
+			dtClases.add(portAD.getDtClase(b));
+			//dtClases = portC.agregarClaseArray(dtClases, portAD.getDtClase(b)); //falla
 		}
 	}
 
@@ -99,7 +101,7 @@
 						
                     	String ranking = request.getParameter("ranking");
                     	if(ranking != null){
-                    		dtClases = portC.rankingClases();
+                    		dtClasesT = portC.rankingClases();
                     	}
                     	
                     	if(dtClases!=null){
@@ -128,14 +130,19 @@
 							
 							//Por cada socio, obtengo sus clases
 							for(DtUsuario U : socios){
-								dtC = ((DtSocio)U).getClases();
-								//Y las comparo con la clase "global" que se está usando (a) para saber si está anotado a la misma 
-								for(DtClase C : dtC){
-									if(nombre == C.getNombre()){
-										//Si lo está, lo agrego a una colección de socios para mostrar luego
-										sociosEnClase.add((DtSocio)U);
+								if (((DtSocio)U).getClases()!= null){//modificado fede
+									int l = ((DtSocio)U).getClases().length;//dice que retorna null el array, lo controlo arriba
+									dtC = new DtClase[l];
+									dtC = ((DtSocio)U).getClases();
+									//Y las comparo con la clase "global" que se está usando (a) para saber si está anotado a la misma 
+									for(DtClase C : dtC){
+										if(nombre == C.getNombre()){
+											//Si lo está, lo agrego a una colección de socios para mostrar luego
+											sociosEnClase.add((DtSocio)U);
+										}
 									}
 								}
+
 							}
 							
 							String curTime = String.format("%02d:%02d", inicio.getHora(), inicio.getMin());
@@ -185,7 +192,7 @@
 									        </div>
 									    </div> 
 				  										
-                                        <li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=registro%></li>
+                                        <li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=registro.getAnio()%>/<%=registro.getMes()%>/<%=registro.getDia()%></li>
                                     </ul>
 
                                 </div>

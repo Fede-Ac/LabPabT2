@@ -1,9 +1,16 @@
 package servlets;
 
+
+import publicadores.ControladorUsuarioPublish;
+import publicadores.ControladorUsuarioPublishService;
+import publicadores.ControladorUsuarioPublishServiceLocator;
+import publicadores.DtProfesor;
+import publicadores.DtSocio;
+import publicadores.DtUsuario;
+
 import java.io.IOException;
 import java.rmi.RemoteException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,40 +19,18 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.xml.rpc.ServiceException;
 
-import publicadores.DtProfesor;
-import publicadores.DtSocio;
-import publicadores.DtUsuario;
-
-import publicadores.ControladorUsuarioPublish;
-import publicadores.ControladorUsuarioPublishService;
-import publicadores.ControladorUsuarioPublishServiceLocator;
-
-
-/**
- * Servlet implementation class IniciarSesion
- */
 @WebServlet("/IniciarSesion")
 public class IniciarSesion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public IniciarSesion() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nickname = request.getParameter("nickname");
 		String pass = request.getParameter("password");
@@ -97,5 +82,6 @@ public class IniciarSesion extends HttpServlet {
         }
 		return dtu;
 	}
-
 }
+
+

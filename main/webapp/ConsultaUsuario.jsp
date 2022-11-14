@@ -90,7 +90,7 @@
                         <div>
                             <div style="display:flex; ">
                                 <img src="vector/FechaNac.svg" style="width: 23px;margin-left: 8px;" alt="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Fecha de nacimiento"data-bs-custom-class="custom-tooltip">
-                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0; overflow-wrap: anywhere;"><%=dtu.getFechaNac() %></p>
+                                <p style="padding-left: 8px;font-size: 17px; margin-bottom: 0; overflow-wrap: anywhere;"><%=dtu.getFechaNac().getAnio() %>/<%=dtu.getFechaNac().getMes() %>/<%=dtu.getFechaNac().getDia() %></p>
                             </div>
                             <%if(dtu instanceof DtProfesor){ %>
 	                            <div style="display:flex;">
@@ -162,7 +162,7 @@
 			                                	<li class="list-group-item"> <a class="card-text p-small" style="display: block; width:fit-content;margin:auto; color: #ee8f4c; padding-bottom: 8px;" href="https://www.google.com"><%=c.getUrl()%></a></li>
 			                                	<li class="list-group-item" style="text-align: center;"><%=c.getFechaInicio()%></li>
 												
-			                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg()%></li>
+			                                	<li class="list-group-item" style="text-align: center;font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=c.getFechaReg().getAnio()%>/<%=c.getFechaReg().getMes()%>/<%=c.getFechaReg().getDia()%></li>
 			                                </ul>
 		                            	</div>
 	                            	</form>
@@ -372,7 +372,7 @@
 	
 											<li class="list-group-item"
 												style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro:
-												<%=a.getFechaReg()%></li>
+												<%=a.getFechaReg().getAnio()%>/<%=a.getFechaReg().getMes()%>/<%=a.getFechaReg().getDia()%></li>
 										</ul>
 										<div class="container">
 											<div class="row">
@@ -497,9 +497,9 @@
 																					style="display: block; width: fit-content; margin: auto; color: #ee8f4c; padding-bottom: 8px;"
 																					href="<%=dtc.getUrl()%>"><%=dtc.getUrl()%></a></li>
 																				<li class="list-group-item"
-																					style="text-align: center;"><%=dtc.getFechaInicio()%></li>
+																					style="text-align: center;"><%=dtc.getFechaInicio().getAnio()%>/%=dtc.getFechaInicio().getMes()%></li>
 																				<li class="list-group-item"
-																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg()%></li>
+																					style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">Registro: <%=dtc.getFechaReg().getAnio()%></li>
 																				<li class="list-group-item" style="text-align: center; font-size: 13px; color: rgb(165, 165, 165);">
 																					<a href="ConsultaDictadoClase.jsp" style="color: #ee8f4c; ">Ver más información</a> <!-- Completar CU  Consulta de Dictado de Clase -->
 																				</li>

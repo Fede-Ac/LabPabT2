@@ -50,6 +50,12 @@ public class ControladorActDepPublishProxy implements publicadores.ControladorAc
     return controladorActDepPublish.existeInstitucionD(arg0);
   }
   
+  public publicadores.DtActividadDeportiva[] agregarActDepArray(publicadores.DtActividadDeportiva[] arg0, publicadores.DtActividadDeportiva arg1) throws java.rmi.RemoteException{
+    if (controladorActDepPublish == null)
+      _initControladorActDepPublishProxy();
+    return controladorActDepPublish.agregarActDepArray(arg0, arg1);
+  }
+  
   public publicadores.DtActividadDeportiva consultaActividadDeportiva(java.lang.String arg0) throws java.rmi.RemoteException{
     if (controladorActDepPublish == null)
       _initControladorActDepPublishProxy();
@@ -110,6 +116,12 @@ public class ControladorActDepPublishProxy implements publicadores.ControladorAc
     return controladorActDepPublish.getSocios();
   }
   
+  public void modificarActividadDeportiva(publicadores.DtActividadDeportiva arg0) throws java.rmi.RemoteException{
+    if (controladorActDepPublish == null)
+      _initControladorActDepPublishProxy();
+    controladorActDepPublish.modificarActividadDeportiva(arg0);
+  }
+  
   public java.lang.String[] getActividadesDeportivas() throws java.rmi.RemoteException{
     if (controladorActDepPublish == null)
       _initControladorActDepPublishProxy();
@@ -126,18 +138,6 @@ public class ControladorActDepPublishProxy implements publicadores.ControladorAc
     if (controladorActDepPublish == null)
       _initControladorActDepPublishProxy();
     return controladorActDepPublish.rankingActividadesDeportivas();
-  }
-  
-  public void modificarActividadDeportiva(publicadores.DtActividadDeportiva arg0) throws java.rmi.RemoteException{
-    if (controladorActDepPublish == null)
-      _initControladorActDepPublishProxy();
-    controladorActDepPublish.modificarActividadDeportiva(arg0);
-  }
-  
-  public publicadores.DtActividadDeportiva[] agregarActDepArray(publicadores.DtActividadDeportiva[] arg0, publicadores.DtActividadDeportiva arg1) throws java.rmi.RemoteException{
-    if (controladorActDepPublish == null)
-      _initControladorActDepPublishProxy();
-    return controladorActDepPublish.agregarActDepArray(arg0, arg1);
   }
   
   
